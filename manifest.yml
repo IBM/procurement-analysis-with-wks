@@ -1,0 +1,17 @@
+---
+declared-services:
+  ProcurementSystemGraph:
+    label: IBM Graph
+    plan: Standard
+  ProcurementSystemDiscovery:
+    label: Discovery
+    plan: Free
+applications:
+- name: ProcurementSystem
+  memory: 256M
+  framework: node
+  instances: 1
+  path: .
+  buildpack: sdk-for-nodejs
+  host: ProcurementSystem
+  random-route: true

@@ -1,0 +1,133 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta(name='description', content='ProcurementSystem')
+    title Procurement System
+    // Bootstrap core CSS
+    link(href="//raw.githubusercontent.com/bassjobsen/typeahead.js-bootstrap-css/master/typeaheadjs.css", rel="stylesheet")
+    link(href="//cdnjs.cloudflare.com/ajax/libs/vis/4.5.0/vis.min.css", rel="stylesheet")
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="/assets/master.css")
+    link(rel="stylesheet", href="/assets/style.css")
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='//oss.maxcdn.com/respond/1.4.2/respond.min.js')
+body
+  header.capped-layout_cap.app-banner
+    div(align='left')
+      a.app-banner_title(rel="home", href="#") Procurement System
+    div(align='right')
+      a#sync(href='#sync' ) Sync
+      | &nbsp;&nbsp;|&nbsp;&nbsp;
+      a#reset(href='#reset') Reset
+  .hero
+      div.root
+        h3.base--h3 Select a query to view output
+        .input--data-selection
+          div
+            .input--option
+              div
+                input#input-name-0.base--radio(type='radio', value='all_with_full_capacity', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-0')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='watch')
+                      path(d='M55.59 25.62H53.3V16.45a6 6 0 0 0-6-6H45.43l-.89-7.26a3 3 0 0 0-3-2.93H21.88a3 3 0 0 0-3 2.93L18 10.45H16.12a6 6 0 0 0-6 6V47.62a6 6 0 0 0 6 6H18l.89 7.26a3 3 0 0 0 3 2.93H41.55a3 3 0 0 0 3-2.93l.89-7.26H47.3a6 6 0 0 0 6-6V38.45h2.28a2 2 0 0 0 2-2V27.62A2 2 0 0 0 55.59 25.62ZM20.87 3.37a1 1 0 0 0 0-.12 1 1 0 0 1 1-1H41.55a1 1 0 0 1 1 1 1 1 0 0 0 0 .12l.86 7.08H20ZM42.56 60.7a1 1 0 0 0 0 .12 1 1 0 0 1-1 1H21.88a1 1 0 0 1-1-1 1 1 0 0 0 0-.12L20 53.62H43.42ZM51.3 47.62a4 4 0 0 1-4 4H16.12a4 4 0 0 1-4-4V16.45a4 4 0 0 1 4-4H47.3a4 4 0 0 1 4 4Zm4.28-11.17H53.34V27.62h2.25Z')
+                      circle(cx='32.14', cy='23.03', r='3.25')
+                      circle(cx='32.14', cy='43.06', r='2.25')
+                      circle(cx='25.12', cy='26.11', r='3')
+                      circle(cx='22.23', cy='33.05', r='2.75')
+                      circle(cx='25.12', cy='40.27', r='2.5')
+                      circle(cx='39.07', cy='26.11', r='1.5')
+                      circle(cx='39.07', cy='40.27', r='2')
+                      circle(cx='41.99', cy='33.05', r='1.75')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text All Suppliers with full Capacity
+            .input--option
+              div
+                input#input-name-1.base--radio(type='radio', value='scheduled_maintenance', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-1')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='cognitive')
+                      path(d='M57.68 37.36A85 85 0 0 1 52.4 22.24C51 16 47.68 1.33 31.6 1.33c-11.1 0-23 5.83-23 22.19a25.17 25.17 0 0 0 3.23 13.27C14 41 16.35 45.7 16.48 59.63a1 1 0 0 0 1 1H39.33a1 1 0 0 0 1-1s.07-3.42.08-7c1.71-.05 5.39-.16 8.54-.16S52.3 50 52.33 48.64c.1-4.94.06-8.27 0-9.84h4.42a1 1 0 0 0 .9-1.43Zm-6.35-.56a1 1 0 0 0-1 1s.14 3.77 0 10.76c0 1.8-.29 1.87-1.38 1.87-4.29 0-9.52.19-9.58.19a1 1 0 0 0-1 1c0 2.74 0 5.53-.06 7H18.46C18.23 45 15.8 40.16 13.66 35.89a23.21 23.21 0 0 1-3-12.37c0-4.74 1.51-20.19 21-20.19C46.08 3.33 49 16.4 50.45 22.68a83.45 83.45 0 0 0 4.78 14.11Z')
+                      path(d='M44.5 17.8a1.74 1.74 0 0 0-1.59 2.47l-4 4.78a4.2 4.2 0 0 0-2.1-.58c-.14 0-.27 0-.41 0L33.54 14.46a3.09 3.09 0 1 0-1.54.42h.1l2.84 10a4.22 4.22 0 0 0-.78.5l-4-3.48a3.08 3.08 0 0 0 .36-1.42 3.13 3.13 0 1 0-1.34 2.55l4 3.47a4 4 0 0 0-.55 2.88L23.8 32.57a2.56 2.56 0 1 0 .52 1.53s0-.08 0-.12l8.82-3.16A4.23 4.23 0 1 0 40 26l4-4.78a1.75 1.75 0 1 0 .44-3.43Z')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text Supply has impacts due to Scheduled Maintenance/Other Market Conditions
+            .input--option
+              div
+                input#input-name-2.base--radio(type='radio', value='government_regulations', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-2')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='education')
+                      path(d='M62.86 22.43 32.38 7.93a1 1 0 0 0-.86 0L1 22.43A1 1 0 0 0 1 24.21l8.56 4.71a1 1 0 0 0 0 .2v9.65a2.53 2.53 0 0 0-.12 4.6 1.26 1.26 0 0 0-.48 1v6.07a1.28 1.28 0 0 0 1.28 1.28h.66a1.28 1.28 0 0 0 1.28-1.28V44.34a1.26 1.26 0 0 0-.49-1 2.53 2.53 0 0 0-.13-4.59V30l3.17 1.74v9.6a1 1 0 0 0 .51.87l16.27 9.16a1 1 0 0 0 1 0l18.41-9.62a1 1 0 0 0 .54-.89V30.57l11.56-6.36a1 1 0 0 0-.05-1.78ZM49.36 40.27 32 49.36l-15.29-8.6V32.85L31.47 41a1 1 0 0 0 1 0l16.93-9.32ZM32 39 14 29.1l18.22-5.48a1 1 0 1 0-.58-1.92l-20.09 6L3.66 23.4 32 9.94 60.24 23.4Z')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text Supply constraint
+            .input--option
+              div
+                input#input-name-3.base--radio(type='radio', value='supply_law', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-3')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='gavel')
+                      path(d='M61.22 22.57l-1.86-1.86a3 3 0 0 0-2-.83 3 3 0 0 0-.86-2L45.66 7a3 3 0 0 0-2-.83 3 3 0 0 0-.86-2L41 2.33a3.08 3.08 0 0 0-4.24 0L30 9.11a3 3 0 0 0 0 4.24l1.86 1.86a3 3 0 0 0 2.12.88h0a3 3 0 0 0 .85 1.8l2.75 2.75a5.72 5.72 0 0 0-3.7 1.65L4.63 51.49a5.78 5.78 0 0 0 8.18 8.18L42 30.47a5.73 5.73 0 0 0 1.65-3.7l2 2a3 3 0 0 0 1.8.85 3 3 0 0 0 .88 2.13l1.86 1.86a3 3 0 0 0 4.24 0l6.78-6.78A3 3 0 0 0 61.22 22.57ZM31.37 11.94a1 1 0 0 1 0-1.41l6.78-6.78a1 1 0 0 1 1.41 0L41.42 5.6a1 1 0 0 1 0 1.41l-6.63 6.63h0l-.15.15a1 1 0 0 1-1.41 0ZM40.6 29.06 11.4 58.26A3.78 3.78 0 0 1 6 52.91l29.2-29.2a3.8 3.8 0 0 1 5.35 0h0A3.79 3.79 0 0 1 40.6 29.06ZM42 22.29h0L36.2 16.47a1 1 0 0 1 0-1.41l6.63-6.63a1 1 0 0 1 1.41 0L55.12 19.3a1 1 0 0 1 0 1.41l-6.63 6.63a1 1 0 0 1-1.41 0ZM59.8 25.4 53 32.18a1 1 0 0 1-1.41 0l-1.86-1.86a1 1 0 0 1 0-1.41l6.78-6.78a1 1 0 0 1 1.41 0L59.8 24A1 1 0 0 1 59.8 25.4Z')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text Supply impact due to change in country Law and Regulations
+            .input--option
+              div
+                input#input-name-4.base--radio(type='radio', value='typhoon', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-4')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='sale')
+                      path(d='M62.94 38.43C61.46 36.9 36.59 12.3 35 10.75a6.26 6.26 0 0 0-4.95-2c-1.78 0-8 0-12.79 0a1 1 0 0 0-.41-.66 23.39 23.39 0 0 0-9-4C4.73 3.63 2.37 4.27 1.2 6c-2.29 3.3 1 9.42 7.5 13.93.61.42 1.23.81 1.86 1.18v6.68A6.35 6.35 0 0 0 13 32.81L40.5 60.73a3.33 3.33 0 0 0 2.2.83 3.63 3.63 0 0 0 2.16-.75l.14-.12c1.32-1.4 17.76-17.84 17.86-17.94a3 3 0 0 0 1-1.92A3.22 3.22 0 0 0 62.94 38.43ZM2.84 7.1c.69-1 2.39-1.36 4.65-1a20 20 0 0 1 6.7 2.66H11.56a1 1 0 0 0-1 1v8.94l-.72-.47C4 14.18 1.45 9.11 2.84 7.1ZM61.51 41.27c-.67.67-16.15 16.15-17.89 18a1.36 1.36 0 0 1-1.72.06l-27.59-28a4.46 4.46 0 0 1-1.75-3.51v-5.7A18.44 18.44 0 0 0 18.78 24a5.33 5.33 0 1 0-.17-2 18.43 18.43 0 0 1-6.05-2.06V10.78c3.49 0 15 0 17.53 0A4.18 4.18 0 0 1 33.46 12l.11.13c.26.26 26.45 26.16 27.89 27.65C62.08 40.49 61.86 41 61.51 41.27ZM24.12 20.67a1 1 0 0 0-1.39.25A2.92 2.92 0 0 1 20.61 22a3.33 3.33 0 1 1 .28 2 4.84 4.84 0 0 0 3.49-1.9A1 1 0 0 0 24.12 20.67Z')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text Supply impacts due to Typhoon
+            .input--option
+              div
+                input#input-name-5.base--radio(type='radio', value='acquisitions', name='input-name', role='radio')
+                label.base--inline-label(for='input-name-5')
+                  .input--option-icon-container
+                    svg.input--option-icon.icon(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 64 64', fill='#000', width='1rem', height='1rem', type='sushi')
+                      path(d='M55.81 21a33.24 33.24 0 0 0-23.52-9.32h-.73a35.73 35.73 0 0 0-7.08.71h0a1 1 0 0 0-.44.11A32.07 32.07 0 0 0 8 21 24.78 24.78 0 0 0 .51 38.52a3.26 3.26 0 0 0 2.33 3 4 4 0 0 0 1.29.21 3.84 3.84 0 0 0 2.56-1c.65-.59 1.33-1.15 2-1.68v2.76c0 5.51 5.14 10 11.45 10H43.69c6.32 0 11.46-4.48 11.46-10V39.12c.7.54 1.38 1.09 2 1.68a3.93 3.93 0 0 0 3.85.74 3.27 3.27 0 0 0 2.33-3A24.78 24.78 0 0 0 55.81 21ZM32.29 13.63a33.81 33.81 0 0 1 6.12.56V49.87h-13V14.19a33.81 33.81 0 0 1 6.12-.56ZM5.35 39.31a1.92 1.92 0 0 1-1.86.33 1.3 1.3 0 0 1-1-1.14 22.79 22.79 0 0 1 7-16.15 29.88 29.88 0 0 1 14-7.74v15.8A37.8 37.8 0 0 0 5.35 39.31Zm5.37 2.56V37.69a36.65 36.65 0 0 1 12.73-5.22V49.87H20.17C15 49.87 10.71 46.28 10.71 41.87Zm42.43 0c0 4.41-4.24 8-9.46 8H40.42V32.48a36.65 36.65 0 0 1 12.73 5.22Zm7.23-2.22a1.92 1.92 0 0 1-1.86-.33 37.81 37.81 0 0 0-18.1-8.88V14.63a29.87 29.87 0 0 1 14 7.73 22.79 22.79 0 0 1 7 16.14A1.3 1.3 0 0 1 60.38 39.65Z')
+                  .input--radio-icon-container
+                    .input--radio-icon
+                  p.base--p.input--option-text Supply impact due to Company Acquisitions
+
+
+  .row.marketing.hidden
+    .box
+      h4.heading Request In progress..
+      #the-result
+
+  .row.marketing.hidden
+    .box
+      h4.heading The Graph
+      #the-graph
+
+  .row.marketing.hidden
+    .query
+      .box
+        h4.heading Query
+        pre
+          code#query
+
+  .row.marketing.hidden
+    .box
+      h4.heading Data
+      pre
+        code#graph-data
+  footer.footer
+    Copyright &copy; 2016 Copyright IBM All Rights Reserved.
+  // /container
+  script(type="text/javascript", src="//code.jquery.com/jquery-2.1.4.min.js")
+  script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/vis/4.5.0/vis.min.js")
+  script(type="text/javascript", src="assets/traversal.js")
+  script(type="text/javascript", src="assets/app.js")
