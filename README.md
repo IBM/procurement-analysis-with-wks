@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 # Procurement System
 
 
@@ -57,95 +57,40 @@ cf push
 
 =======
 
-WKS-Discovery-BM Graph
+Watson Knowledge Studio-Discovery-BM Graph
 In this journey, we will be creating complete end to end AI solution for procurement use case.
 
 The steps followed to create solution is as follows.
 
-WKS
+##Watson Knowledge Studio (WKS)
 1. We build Type System specific to business domain/use case
 2. We follow human annotation process to identify entities and relationship.
 3. We create machine learning model and train the model till we are satisfied with model.
 4. The corpus document from document is exported which will be used by Discovery Service.
 
-Discovery Service
+##Discovery Service
 5. We create discovery service from bluemix account and import the corpus documents exported from step 4.
 
-IBM Graph
+##IBM Graph
 6. We create graph for this use case by creating schema/initial data for bootstrapping graph.
 
-Client Application
+##Client Application
 7. We create client application which calls Discovery Service
-8. The output (json data) of discovery service is parsed and nodes and edges for the graph are created dynamically. 
+8. The output (json data) of discovery service is parsed and nodes and edges for the graph are created dynamically.
 
 
-Process Flow
+##Process Flow
+
+<img src="images/Process flow for wks-discovery-graph.png" width="800" height="350" align="center">
+
+##Technical Architecture
+
+<img src="images/Technical Architecture.png" width="800" height="350" align="center">
+
+<img src="images/Technical Architecture - 2.png" width="800" height="350" align="center">
 
 
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                                                                        
-
-                                                                             
-
-
-
-
-
-
-Technical Architecture
-
-                       					     
-
-
-
-
-
-
-
-
-
-
-
-Features
+##Features
 1. User can query to know suppliers for a commodity
 2. User can get info along with supplier and their facility available
 3. User can query to get any supplier constraints
@@ -155,10 +100,8 @@ a. Watson Knowledge Studio
 b. Bluemix Watson Discovery Service
 c. Client Application
 d. IBM Graph
-Deploy the Machine learning model to Discovery
- 
 
+##Deploy the Machine learning model to Discovery
+<img src="images/Deploy wks model to discovery 1.png" width="800" height="350" align="center">
 
-
-
->>>>>>> Stashed changes
+<img src="images/Deploy wks model to discovery 2.png" width="800" height="350" align="center">
