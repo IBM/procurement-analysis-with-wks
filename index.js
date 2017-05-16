@@ -17,7 +17,7 @@
  */
 
 // Load env
-require('dotenv').load();
+require('dotenv').load({ silent: true });
 
 // Necessary Libs
 var cfenv     = require('cfenv');

@@ -63,7 +63,7 @@ d. IBM Graph
 3. Clone the app to your local environment from your terminal using the following command:
 
    ```
-git clone https://github.com/rameshpoomalai/ProcurementSystem.git
+git clone https://github.ibm.com/IBMDigital/Procurement-System.git
    ```
 
 4. Change into the newly created directory:
@@ -93,7 +93,9 @@ cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
 8. Create an instance of the Discovery Service.
 
   ```
-cf create-service "Discovery" Free ProcurementSystemDiscovery
+cf create-service discovery standard ProcurementSystemDiscovery
+cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
   ```
 9. Push the app.
 
