@@ -22,13 +22,13 @@ require('dotenv').load({ silent: true });
 var GDS = require('ibm-graph-client');
 
 console.log("Calling setup script");
-
+var config ;
 // Set config
 if (process.env.APP_SERVICES) {
   var vcapServices = JSON.parse(process.env.APP_SERVICES);
   var graphService = 'IBM Graph';
   if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
-    var config = vcapServices[graphService][0];
+    config = vcapServices[graphService][0];
   }
   else {
     console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
@@ -38,15 +38,15 @@ if (process.env.VCAP_SERVICES) {
   var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
   var graphServiceName = 'IBM Graph';
   if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    var config = vcapServices[graphServiceName][0];
+    config = vcapServices[graphServiceName][0];
   }
 }
 
 // Add the graph
 var graph = new GDS({
-  url: process.env.GRAPH_URL || config.credentials.apiURL,
-  username: process.env.GRAPH_USERNAME || config.credentials.username,
-  password: process.env.GRAPH_PASSWORD || config.credentials.password,
+  url:  config.credentials.apiURL,
+  username:  config.credentials.username,
+  password:  config.credentials.password,
 });
 
 var gremlin =  require('./data/gremlin.json');

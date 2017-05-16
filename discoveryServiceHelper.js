@@ -1,6 +1,6 @@
 
 // Load env
-require('dotenv').load();
+require('dotenv').load({ silent: true });
 
 var DiscoveryV1 = require('watson-developer-cloud/discovery/v1');
 var GDS       = require('ibm-graph-client');
@@ -20,7 +20,7 @@ var syncservice = {};
     // Set config
     if (process.env.APP_SERVICES) {
       var vcapServices = JSON.parse(process.env.APP_SERVICES);
-      var discoveryService = 'Discovery';
+      var discoveryService = 'discovery';
       if (vcapServices[discoveryService] && vcapServices[discoveryService].length > 0) {
         var config = vcapServices[discoveryService][0];
       }
