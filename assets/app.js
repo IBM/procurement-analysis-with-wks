@@ -40,20 +40,17 @@ $(document).ready(function () {
     );
 
     $('a[href="#sync"]').click(function(){
-      var graphDataContainer = $('#graph-data').parent().parent().parent();
       var graphVisContainer = $('#the-graph').parent().parent();
-      if (!graphDataContainer.hasClass('hidden')) {
-          graphDataContainer.addClass('hidden');
+      if (!graphVisContainer.hasClass('hidden')) {
+
           graphVisContainer.addClass('hidden');
         }
       callSync();
     });
 
     $('a[href="#reset"]').click(function(){
-      var graphDataContainer = $('#graph-data').parent().parent().parent();
       var graphVisContainer = $('#the-graph').parent().parent();
-      if (!graphDataContainer.hasClass('hidden')) {
-          graphDataContainer.addClass('hidden');
+      if (!graphVisContainer.hasClass('hidden')) {
           graphVisContainer.addClass('hidden');
         }
       callReset();
@@ -88,13 +85,12 @@ function callReset()
     }));
 }
 function callService(value, nodeLabel, nodeText){
-  var graphDataContainer = $('#graph-data').parent().parent().parent();
   var graphVisContainer = $('#the-graph').parent().parent();
   var queryContainer = $('#query').parent().parent().parent().parent();
 
   // Loading spinner
   var loadingSpinner = '<i class="fa fa-spinner fa-spin"></i>';
-  $('#graph-data, #query, #the-graph').html(loadingSpinner);
+  $('#query, #the-graph').html(loadingSpinner);
 
 
   var url = '/knowledgegraph/' + value;
@@ -125,8 +121,7 @@ function callService(value, nodeLabel, nodeText){
     ajaxRequest[0].abort();
   }
 
-  if (graphDataContainer.hasClass('hidden')) {
-      graphDataContainer.removeClass('hidden');
+  if (graphVisContainer.hasClass('hidden')) {
       graphVisContainer.removeClass('hidden');
     }
 
@@ -134,8 +129,6 @@ function callService(value, nodeLabel, nodeText){
     console.log(data);
 
     // $('#query').html(data.query);
-
-    $('#graph-data').html(JSON.stringify(data.data, null, 4));
 
     var rawNodes = [];
     var ignoreNodes = [];
@@ -149,18 +142,10 @@ function callService(value, nodeLabel, nodeText){
         var obj = path[j];
         if (obj.type == 'vertex') {
           if (ignoreNodes.indexOf(obj.id) < 0) {
-            var nodeLabelTxt = obj.properties.name[0].value;
-            if(obj.properties.text)
-            {
-              nodeLabelTxt =  obj.properties.text[0].value
-            }
-            else {
-              nodeLabelTxt =   obj.properties.name[0].value
-            }
             var nodeObject = {
               id: obj.id,
-              label: nodeLabelTxt.substring(0, 6)+'..',
-              title: nodeLabelTxt,
+              label: obj.properties.name[0].value.substring(0, 6)+'..',
+              title: obj.properties.name[0].value,
               nodeLabel: obj.label,
               shape: 'circle',
               //label : obj.label
@@ -232,7 +217,7 @@ function callService(value, nodeLabel, nodeText){
             rawEdges.push({
               from: obj.outV,
               to: obj.inV,
-              label:'          '+obj.label,
+              label:obj.label,
               font: {align: 'middle'},
               length:100
             });

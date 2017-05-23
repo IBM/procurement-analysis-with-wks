@@ -17,7 +17,7 @@
  */
 
 // Load env
-require('dotenv').load({ silent: true });
+require('dotenv').load();
 
 // Necessary Libs
 var cfenv     = require('cfenv');
@@ -37,9 +37,6 @@ if (process.env.APP_SERVICES) {
   if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
     var config = vcapServices[graphService][0];
   }
-  else {
-    console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
-  }
 }
 if (process.env.VCAP_SERVICES) {
   var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
@@ -49,7 +46,6 @@ if (process.env.VCAP_SERVICES) {
   }
 }
 
-console.log('Config:'+config);
 // Set up the DB
 var graphservice = new GDS({
   url: config.credentials.apiURL,
@@ -106,20 +102,8 @@ server.route({
 });
 
 var gremlinQuery = function (request, reply) {
-  console.log(request.params);
+
   var querytype = (request.params.querytype) ? request.params.querytype : 'scheduled_maintenance';
-  traversal.addPerson(querytype);
-
-  // Reset All Paths
-  traversal.resetAllPaths();
-
-  // Show All Paths
-  if (request.params.showall === 'showall') {
-    traversal.allPaths();
-  }
-
-  console.log(traversal.traversal4);
-  console.log(traversal.traversal4.toString());
   var queryPath;
   switch (querytype) {
     case 'scheduled_maintenance':
@@ -141,7 +125,6 @@ var gremlinQuery = function (request, reply) {
       queryPath = traversal.traversal;
 
 }
-console.log("QueryType:"+queryPath);
 console.log("Gremlin Query:"+queryPath.join('.'));
  // graphservice.gremlin('def g = graph.traversal();' + traversal.traversal.join('.'), function (e, b) {
   graphservice.gremlin('def g = graph.traversal();' + queryPath.join('.'), function (e, b) {

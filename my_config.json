@@ -1,6 +1,6 @@
 {
-  "configuration_id": "6f615b12-4ad0-4f55-8f3e-0d17c8f9b084",
-  "name": "ProcurementSystemConfig",
+  "configuration_id": "5fc005fc-ee74-4394-92e5-db96ef8d788e",
+  "name": "ProcurementSystemConfigs",
   "description": null,
   "created": "2017-03-15T04:29:59.540Z",
   "updated": "2017-03-15T04:31:19.802Z",
@@ -132,7 +132,7 @@
       "options": {
         "extract": "typed-rels,keyword, entity, doc-sentiment, taxonomy, concept, relation",
         "showSourceText": 1,
-        "model": "03407862-21a7-4e61-a113-4aa1fc615a9b"
+        "model": "03d6433d-3bc0-4098-b317-3c771d255af0"
       }
     }
 

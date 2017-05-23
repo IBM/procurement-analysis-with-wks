@@ -62,15 +62,13 @@ d. IBM Graph
 
 3. Clone the app to your local environment from your terminal using the following command:
 
-   ```
-git clone https://github.ibm.com/IBMDigital/Procurement-System.git
-   ```
+    git clone https://github.ibm.com/IBMDigital/Procurement-System.git
 
 4. Change into the newly created directory:
 
-   ```
-cd ProcurementSystem
-   ```
+
+    cd ProcurementSystem
+
 
 5. Open the `manifest.yml` file and change the `host` value to something unique.
 
@@ -78,40 +76,37 @@ cd ProcurementSystem
 
 6. Connect to Bluemix in the command line tool and log in.
 
-   ```
-cf api <API_URL> # e.g. https://api.ng.bluemix.net
-cf login
-   ```
+
+    cf api <API_URL> # e.g. https://api.ng.bluemix.net
+    cf login
+
 
 7. Create an instance of the IBM Graph service.
 
-   ```
-cf create-service "IBM Graph" Standard ProcurementSystemGraph
 
-cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
-   ```
+    cf create-service "IBM Graph" Standard ProcurementSystemGraph
+
+    cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
+
 8. Create an instance of the Discovery Service.
 
-  ```
-cf create-service discovery standard ProcurementSystemDiscovery
-cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
-cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
-  ```
+
+    cf create-service discovery standard ProcurementSystemDiscovery
+    cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+    cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+
 9. Push the app.
 
-  ```
+
 # optionally, log in
-cf api <API_URL> # e.g. https://api.ng.bluemix.net
-cf login
+    cf api <API_URL> # e.g. https://api.ng.bluemix.net
+    cf login
 # deploy the app
-cf push
+  cf push
 
-  ```
 
-  ## Deploy the App
-  <b>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Lab Document Download](http://ibm.biz/Bdru7G)</b>
 
-  a. Click on the 'Deploy to Bluemix' button below.
+## Deploy the App
 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.ibm.com/IBMDigital/Procurement-System)
+a. Click on the 'Deploy to Bluemix' button below.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.ibm.com/IBMDigital/Procurement-System)

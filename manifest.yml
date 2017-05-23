@@ -18,3 +18,7 @@ applications:
   services:
   - ProcurementSystemGraph
   - ProcurementSystemDiscovery
+  env:
+    environment_id: c1cebfb0-0cc5-4c4b-b4e3-76733852e736
+    configuration_id: be94907f-e7cc-4915-95f5-84dcc23ae5e7
+    collection_id: e804e587-e7b2-4c1a-8a38-f69bc60d6d22

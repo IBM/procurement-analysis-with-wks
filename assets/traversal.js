@@ -16,10 +16,8 @@ var traversal = {};
   traversal.traversal1 = [
     'g',
     'V()',
-    'hasLabel("Commodity")',
-    'has("name", "MMA")',
-    'outE()',
-    'inV()',
+    'hasLabel("Supply")',
+    'has("name", "Supply")',
     'outE()',
     'inV()',
     'outE()',
@@ -34,9 +32,9 @@ var traversal = {};
     traversal.traversal1 = [
       'g',
       'V()',
-      'hasLabel("Commodity")',
-      'has("name", "MMA")',
-      'repeat(__.outE().inV().dedup().simplePath()).until(out().count().is(0)).dedup().path().simplePath()'
+      'hasLabel("Supply")',
+      'has("name", "Supply")',
+      'repeat(__.outE().inV().dedup().simplePath()).until(__.has("sentiment","Negative")).path().simplePath()'
   	  ];
 
 
@@ -44,40 +42,29 @@ var traversal = {};
 traversal.traversal2 = [
   'g',
   'V()',
-  'hasLabel("Commodity")',
-  'has("name", "MMA")',
+  'hasLabel("Supply")',
+  'has("name", "Supply")',
   'outE()',
-  'inV()',
-  'outE()',
-  'inV()',
-  'outE()',
-  'inV()',
-  'outE()',
-  'inV()',
-  'or(__.hasLabel(\'Country\'), __.hasLabel(\'Location\'))',
+  'inV().hasLabel("Supplier")',
+  'repeat(outE().inV())',
+  'until(__.has("name","Time_Period").count().is(0))',
   'path()',
   'simplePath()'
   ];
 
-
-
 traversal.traversal3 = [
   'g',
   'V()',
-  'hasLabel("Commodity")',
-  'has("name", "MMA")',
-  'outE()',
-  'inV()',
-  'outE()',
-  'inV().hasLabel("Supplier").has("name","Asahi Kasei Corp")',
+  'hasLabel("Supply")',
+  'has("name", "Supply")',
   'repeat(outE().inV()).until(out().count().is(0)).path().simplePath()'
   ];
 
   traversal.traversal4 = [
       'g',
       'V()',
-      'hasLabel("Commodity")',
-      'has("name", "MMA")',
+      'hasLabel("Supply")',
+      'has("name", "Supply")',
       'outE()',
       'inV()',
       'outE()',

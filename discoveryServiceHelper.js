@@ -16,20 +16,21 @@ var syncservice = {};
 
     // Handle Configs
     var appEnv = cfenv.getAppEnv();
-
+;
     // Set config
+    var config;
     if (process.env.APP_SERVICES) {
       var vcapServices = JSON.parse(process.env.APP_SERVICES);
       var discoveryService = 'discovery';
       if (vcapServices[discoveryService] && vcapServices[discoveryService].length > 0) {
-        var config = vcapServices[discoveryService][0];
+        config = vcapServices[discoveryService][0];
       }
     }
     if (process.env.VCAP_SERVICES) {
       var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-      var graphServiceName = 'Discovery';
+      var graphServiceName = 'discovery';
       if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-        var config = vcapServices[graphServiceName][0];
+        config = vcapServices[graphServiceName][0];
       }
     }
 
@@ -39,12 +40,12 @@ var syncservice = {};
       password: config.credentials.password,
       version_date: '2016-12-01'
     });
-
+    var configGraph ;
     if (process.env.APP_SERVICES) {
       var vcapServices = JSON.parse(process.env.APP_SERVICES);
       var graphService = 'IBM Graph';
       if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
-        var configGraph = vcapServices[graphService][0];
+        configGraph = vcapServices[graphService][0];
       }
       else {
         console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
@@ -54,7 +55,7 @@ var syncservice = {};
       var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
       var graphServiceName = 'IBM Graph';
       if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-        var config = vcapServices[graphServiceName][0];
+        configGraph = vcapServices[graphServiceName][0];
       }
     }
     var graphservice = new GDS({
@@ -63,7 +64,7 @@ var syncservice = {};
       password: configGraph.credentials.password,
     });
 
-    discovery.query(({"environment_id":config.credentials.environment_id, "configuration_id":config.credentials.configuration_id, "collection_id":config.credentials.collection_id, "query":"enriched_text.typedRelations.arguments.entities.type:Facility_Production_Down,enriched_text.typedRelations.arguments.entities.type:PriceRange,enriched_text.typedRelations.arguments.entities.type:Time_Period&return=enriched_text.typedRelations"}), function(error, data)
+    discovery.query(({"environment_id":process.env.environment_id, "configuration_id":process.env.configuration_id, "collection_id":process.env.collection_id, "query":"enriched_text.typedRelations.arguments.entities.type:Facility_Production_Down,enriched_text.typedRelations.arguments.entities.type:PriceRange,enriched_text.typedRelations.arguments.entities.type:Time_Period&return=enriched_text.typedRelations"}), function(error, data)
     {
       console.log("discovery service callback .....");
 
@@ -91,6 +92,7 @@ var syncservice = {};
             var market="";
 
 
+
             //  for(var attributename in groupedData)
             //  {
               //groupedData[attributename].forEach(function (item, index)
@@ -115,7 +117,22 @@ var syncservice = {};
 
                   var entityText2 = item.arguments[1].entities[0].text;
                   var entityPart2 = item.arguments[1].part;
-                  var attributename=item.sentence
+                  var attributename=item.sentence;
+
+
+                  console.log('\n\nGrouped Results:>>>>>>>>:'+attributename);
+                  groupedData[attributename].forEach(function (markeData, index)
+                  {
+                    console.log("markeData.type                         :"+markeData.type);
+                    console.log('markeData.arguments[0].entities[0].type:',markeData.arguments[0].entities[0].type);
+                    console.log('markeData.arguments[0].entities[0].text:',markeData.arguments[0].entities[0].text);
+                    console.log('markeData.arguments[1].text            :',markeData.arguments[0].text);
+                    console.log('markeData.arguments[1].entities[0].type:',markeData.arguments[1].entities[0].type);
+                    console.log('markeData.arguments[1].entities[0].text:',markeData.arguments[1].entities[0].text);
+                    console.log('markeData.arguments[1].text            :',markeData.arguments[1].text);
+
+                  });
+                  
 
                   if(item.type=='PriceRangeinMarket')
                   {
@@ -213,7 +230,7 @@ var syncservice = {};
                             console.log("Error_Price_Negative>>>>>>>>>>>>>>>>", e );
 
                           }
-                          console.log("Response_Price_Negative Part 1>>>>>>>>>>>>>>>> ", b ," >gremlinQuery : ", gremlinQuery );
+                          //console.log("Response_Price_Negative Part 1>>>>>>>>>>>>>>>> ", b ," >gremlinQuery : ", gremlinQuery );
                         });
 
 
@@ -279,7 +296,7 @@ var syncservice = {};
                           console.log("Error>>>>>>>>>>>>>>>>", e );
                           console.log("Error>>>>>>>>>>>>>>>>", b );
                         }
-                        console.log("Response>>>>>>>>>>>>>>>",b);
+                        //console.log("Response>>>>>>>>>>>>>>>",b);
                       });
 
 
@@ -335,7 +352,7 @@ var syncservice = {};
                       gremlinQuery += 'def RefSupplyStatus = graph.traversal().V().hasLabel(\"SupplyStatus\").has(\"name\",\"' + supplyStatus + '\");\n';
                       gremlinQuery += 'refstausTimePeriod = graph.traversal().V().hasLabel(\"StatusTimePeriod\").has(\"name\",\"' + market+'-'+timePeriod + '\").next();\n'
                       gremlinQuery += 'refstausTimePeriod.addEdge(\"supply_status\", RefSupplyStatus.next());   ';
-                      console.log('gremlinQuery>>>>'+gremlinQuery);
+                      //console.log('gremlinQuery>>>>'+gremlinQuery);
                       graphservice.gremlin(gremlinQuery, function (e, b){
                         if (e) {
                           console.log("Error>>>>>>>>>>>>>>>>", e );

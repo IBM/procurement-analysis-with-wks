@@ -5,21 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "test",
+
     "start-dev": "nodemon --ext js,jade,env index.js",
     "postinstall": "npm run setup",
-    "setup": "node setup.js"
+    "setup": "node setup.js",
+    "test": "./node_modules/jshint/bin/jshint test/test.express.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rameshpoomalai/ProcurementSystem.git"
+    "url": "https://github.ibm.com/IBMDigital/Procurement-System.git"
   },
   "author": "Ramesh Poomalai <ramesh.poomalai@in.ibm.com>,Rajesh H Gudikoti <ragudiko@in.ibm.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/rameshpoomalai/ProcurementSystem/issues"
+    "url": "https://github.ibm.com/IBMDigital/Procurement-System/issues"
   },
-  "homepage": "https://github.com/rameshpoomalai/ProcurementSystem",
+  "homepage": "https://github.ibm.com/IBMDigital/Procurement-System",
   "dependencies": {
     "argparse": "^1.0.2",
     "async": "^2.0.1",
@@ -39,5 +40,9 @@
   },
   "engines": {
     "node": ">=5"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.4"
   }
+
 }
