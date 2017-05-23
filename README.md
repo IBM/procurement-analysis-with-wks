@@ -110,4 +110,4 @@ d. IBM Graph
 ## Deploy the App
 
   a. Click on the 'Deploy to Bluemix' button below.
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.ibm.com/IBMDigital/Procurement-System)
+   [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.ibm.com/IBMDigital/Procurement-System)
