@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IBM/watson-online-store.svg?branch=master)](https://travis-ci.org/IBM/Procurement-System)
+![Build Status](https://travis-ci.org/rameshpoomalai/ProcurementSystem.svg?branch=master)
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/4b751f79e33f1202fce05f6ba8c0e740/badge.svg)
 
 Watson Knowledge Studio-Discovery-BM Graph
