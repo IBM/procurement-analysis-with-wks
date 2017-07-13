@@ -202,9 +202,6 @@ function callService(value, nodeLabel, nodeText){
               }
 
             }
-
-
-
             rawNodes.push(nodeObject);
             ignoreNodes.push(obj.id);
           }
@@ -254,6 +251,25 @@ function callService(value, nodeLabel, nodeText){
           smooth: true,
           arrows: {to : true },
           forceDirection: "none"
+        },
+        interaction:{
+          dragNodes:false,
+          dragView: false,
+          hideEdgesOnDrag: false,
+          hideNodesOnDrag: false,
+          hover: true,
+          hoverConnectedEdges: true,
+          keyboard: {
+            enabled: false,
+            speed: {x: 10, y: 10, zoom: 0.02},
+            bindToWindow: true
+          },
+          multiselect: true,
+          navigationButtons: true,
+          selectable: true,
+          selectConnectedEdges: true,
+          tooltipDelay: 300,
+          zoomView: true
         }
       };
 
