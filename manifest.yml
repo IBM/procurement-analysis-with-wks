@@ -13,6 +13,7 @@ applications:
   instances: 1
   path: .
   buildpack: sdk-for-nodejs
+  host: ProcurementSystemDemo
   random-route: true
   services:
   - ProcurementSystemGraph
