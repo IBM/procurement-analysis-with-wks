@@ -2,7 +2,41 @@
 ![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/4b751f79e33f1202fce05f6ba8c0e740/badge.svg)
 
 Watson Knowledge Studio-Discovery-BM Graph
-In this journey, we will be creating complete end to end AI solution for procurement use case.
+In this journey, we will be creating complete end to end solution for procurement use case.
+
+Currently customers do analysis of various market reports on their own or hire experts to make procurement decision. The expert analyze the reports captured from various data source. This can be time consuming and creates dependency on experts, every time a procurement decision has to be made. There is also probability of human error if expert misses important factor.
+e.g. Assume experts have to analyze various report, different suppliers and their location.If he/she missed to consider some of these factor like plant shutdown and he/she might request a material from the supplier. Now this supplier who has plant down may not able serve the order immediately and that might impact production.
+By using our intelligent procurement system customer can get such expert analysis faster and more accurate. The customer has to initially train the model/system with various use cases(reports).
+The target end user of this system is person who is working for a procurement section in a company or any other stakeholder who has authority to make procurement decisions.
+
+To understand the significance of wks we will look into details of few entities extracted by discovery without wks model and with wks model.
+
+Discovery output without wks
+	......
+	"text": "Asahi Kasei Corp",
+	"relevance": 0.227493,
+	"type": "Company"
+	.......
+
+	"text": "Kawasaki",
+	"relevance": 0.274707,
+	"type": "Company"
+	.......
+
+Discovery output with wks
+	.......
+	"id": "-E114",
+	"text": "Asahi Kasei Corp",
+	"type": "Supplier""
+	.......
+
+	"id": "-E119",
+	"text": "Kawasaki",
+	"type": "Facility"
+	.......
+
+  In case of discovery without wks, Asahi Kasei is identified as company as expected from basic nlu processing. It cannot understand procurement domain specific nomenclature. The same is the case with capturing plant name Kawasaki. It identifies Kawasaki as company instead of facility.
+  But in discovery with wks, it identifies Asahi Kasei as supplier and Kawasaki as facility(plant).
 
 The steps followed to create solution is as follows. For commands please refer Running the application on Bluemix section below.
 
@@ -13,7 +47,7 @@ The steps followed to create solution is as follows. For commands please refer R
 4. The corpus document from document tab can be exported which can be imported into new wks project if required.
 
 ## Discovery Service
-1. We create discovery service from bluemix account.
+1. We create discovery service from bluemix account. The discovery has to be created under US South as services under US South are ONLY visible while deploying wks model into discovery.
 2. We create collection with customized configuration which points to wks model id.
 
 ## IBM Graph

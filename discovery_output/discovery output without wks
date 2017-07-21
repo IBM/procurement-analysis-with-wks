@@ -1,0 +1,1373 @@
+Suppliers without WKS:
+{
+	"matching_results": 2,
+	"passages": [
+		{
+			"document_id": "4e27e4f5c1bbe4ee1e2830bbf01999e0",
+			"passage_score": 4.903421209789107,
+			"passage_text": " tight supply scenario spilled over to China, fuelling domestic MMA prices there.\n</p><p>Firmer import buying appetite, with suppliers citing increased spot enquiries for emulsion resins applications"
+		},
+		{
+			"document_id": "4e27e4f5c1bbe4ee1e2830bbf01999e0",
+			"passage_score": 4.903421209789107,
+			"passage_text": ", the overall tight supply scenario spilled over to China, fuelling domestic MMA prices there.\n\nFirmer import buying appetite, with suppliers citing increased spot enquiries for emulsion resins applications"
+		},
+		{
+			"document_id": "4e27e4f5c1bbe4ee1e2830bbf01999e0",
+			"passage_score": 4.903421209789107,
+			"passage_text": " sellers, leaving little room for negotiation on the buying side.\n</p><p>Escalating MMA prices have, in turn, compelled downstream (PMMA) suppliers to raise their asking levels even as overall demand"
+		},
+		{
+			"document_id": "4e27e4f5c1bbe4ee1e2830bbf01999e0",
+			"passage_score": 4.903421209789107,
+			"passage_text": " sellers, leaving little room for negotiation on the buying side.\n\nEscalating MMA prices have, in turn, compelled downstream (PMMA) suppliers to raise their asking levels even as overall demand was just"
+		},
+		{
+			"document_id": "af0956abaf69f6eb02e2396cca3ed7f1",
+			"passage_score": 4.903421209789107,
+			"passage_text": " the current firm market climate where a majority of regional suppliers are at short positions, a buildup in inventories is needed to alleviate the supply crunch situation, a southeast Asia based market source"
+		},
+		{
+			"document_id": "af0956abaf69f6eb02e2396cca3ed7f1",
+			"passage_score": 4.903421209789107,
+			"passage_text": " climate where a majority of regional suppliers are at short positions, a buildup in inventories is needed to alleviate the supply crunch situation, a southeast Asia based market source said.\n\nThe buoyant"
+		}
+	],
+	"results": [
+		{
+			"id": "4e27e4f5c1bbe4ee1e2830bbf01999e0",
+			"score": 0.19329756,
+			"extracted_metadata": {
+				"title": "no title",
+				"sha1": "1c6344e2af305206f28de6805bce6a8490e5daca",
+				"filename": "Methyl Methacrylate (Asia-Pacific) 14 Oct 2016.pdf20170721-7-s04cfl.pdf",
+				"file_type": "pdf"
+			},
+			"html": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><html>\n<head>\n    <meta content=\"text/html; charset=UTF-8\" http-equiv=\"Content-Type\"/><title>no title</title></head>\n<body><table border=\"1\"><tbody><tr><td><p><b>SPOT PRICES - CARGOES OF 500 MT OR MORE \n</b></p></td></tr></tbody></table><p><b>  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  </b>USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91\n<b>CFR Taiwan  </b>USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91\n<b>CFR South Korea  </b>USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91\n</p><table border=\"1\"><tbody><tr><td><p><b>SPOT PRICES - CARGOES OF 20 - 300 MT \n</b></p></td></tr></tbody></table><p><b>  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  </b>USD/tonne +20 1850.00-1900.00 +20 1785.00-1850.00 83.91-86.18\n</p><p><b><i>NOTE: Please click </i></b><b><i><a href=\"http://www.icis.com/about/methodology\">here</a></i></b><b><i> for full details on the criteria ICIS pricing uses in making these price assessmen...",
+			"text": "no title\n\nSPOT PRICES - CARGOES OF 500 MT OR MORE \n\n  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91 CFR Taiwan  USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91 CFR South Korea  USD/tonne +20 1845.00-1850.00 +20 1780.00-1785.00 83.69-83.91\n\nSPOT PRICES - CARGOES OF 20 - 300 MT \n\n  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  USD/tonne +20 1850.00-1900.00 +20 1785.00-1850.00 83.91-86.18\n\nNOTE: Please click here for full details on the criteria ICIS pricing uses in making these price assessments.\n\nSubscriber note: ICIS is currently consulting readers about the methodology used for this report. To respond please go to:\n\nhttps://www.icis.com/compliance/documents/methyl-methacrylate-mma-methodology-consultation-2016-2/\n\nOverview\n\n- Plant disruptions crimp cargo availability\n\n- Regional supply tightness persists\n\n- China domestic markets strengthen\n\nPrice chart: MMA Southeast Asia vs PMMA Southeast Asia\n\nAsia spot markets\n\nSpot p...",
+			"enriched_text": {
+				"sentiment": {
+					"document": {
+						"score": -0.128446,
+						"label": "negative"
+					}
+				},
+				"entities": [
+					{
+						"count": 10,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "ICIS",
+						"relevance": 0.819954,
+						"type": "Company"
+					},
+					{
+						"count": 7,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asia",
+						"relevance": 0.641597,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"FieldOfStudy",
+								"Continent"
+							],
+							"name": "Asia",
+							"dbpedia_resource": "http://dbpedia.org/resource/Asia"
+						}
+					},
+					{
+						"count": 6,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asia Pacific",
+						"relevance": 0.635784,
+						"type": "Company"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Methacrylate Asia Pacific",
+						"relevance": 0.530095,
+						"type": "Facility"
+					},
+					{
+						"count": 4,
+						"sentiment": {
+							"score": -0.43316
+						},
+						"text": "China",
+						"relevance": 0.432733,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "PMMA Southeast Asia",
+						"relevance": 0.429456,
+						"type": "JobTitle"
+					},
+					{
+						"count": 5,
+						"sentiment": {
+							"score": -0.336874
+						},
+						"text": "US",
+						"relevance": 0.411615,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Region",
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"FilmEditor",
+								"Country"
+							],
+							"name": "United States",
+							"dbpedia_resource": "http://dbpedia.org/resource/United_States"
+						}
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asia",
+						"relevance": 0.354116,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 3,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "IPEX",
+						"relevance": 0.32868,
+						"type": "HealthCondition"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "MMA",
+						"relevance": 0.326981,
+						"type": "Organization"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Quadrant House",
+						"relevance": 0.297791,
+						"type": "Facility"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0.456686
+						},
+						"text": "Editor",
+						"relevance": 0.285483,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "South Korea",
+						"relevance": 0.270652,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"Country"
+							],
+							"name": "South Korea",
+							"dbpedia_resource": "http://dbpedia.org/resource/South_Korea"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "MT",
+						"relevance": 0.268044,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"StateOrCounty"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Taiwan",
+						"relevance": 0.266184,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GeographicFeature",
+								"Island",
+								"Country"
+							],
+							"name": "Taiwan",
+							"dbpedia_resource": "http://dbpedia.org/resource/Taiwan"
+						}
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "OPEC",
+						"relevance": 0.264402,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [],
+							"name": "OPEC",
+							"dbpedia_resource": "http://dbpedia.org/resource/OPEC"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Melanie Wee",
+						"relevance": 0.249124,
+						"type": "Person"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "United Kingdom",
+						"relevance": 0.249015,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [
+								"Location",
+								"AdministrativeDivision",
+								"Country",
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"MeteorologicalService"
+							],
+							"name": "United Kingdom",
+							"dbpedia_resource": "http://dbpedia.org/resource/United_Kingdom"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Japan",
+						"relevance": 0.246957,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Kingdom",
+								"Country"
+							],
+							"name": "Empire of Japan",
+							"dbpedia_resource": "http://dbpedia.org/resource/Empire_of_Japan"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0.529944
+						},
+						"text": "South China",
+						"relevance": 0.244516,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "East China",
+						"relevance": 0.244452,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.780128
+						},
+						"text": "Asia-Pacific",
+						"relevance": 0.236359,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "UK",
+						"relevance": 0.232681,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"MeteorologicalService",
+								"Country"
+							],
+							"name": "United Kingdom",
+							"dbpedia_resource": "http://dbpedia.org/resource/United_Kingdom"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Surrey",
+						"relevance": 0.232655,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"City"
+							],
+							"name": "Surrey, British Columbia",
+							"dbpedia_resource": "http://dbpedia.org/resource/Surrey,_British_Columbia"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "CNY/tonne",
+						"relevance": 0.229733,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "London",
+						"relevance": 0.227789,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"OlympicHostCity",
+								"PlaceWithNeighborhoods",
+								"City"
+							],
+							"name": "London",
+							"dbpedia_resource": "http://dbpedia.org/resource/London"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asahi Kasei Corp",
+						"relevance": 0.227493,
+						"type": "Company"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0.495713
+						},
+						"text": "Consulting | Magazine",
+						"relevance": 0.226155,
+						"type": "PrintMedia"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Mitsubishi Gas Chemical Co",
+						"relevance": 0.225758,
+						"type": "Company"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "producer",
+						"relevance": 0.224756,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Niigata",
+						"relevance": 0.221284,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Houston",
+						"relevance": 0.218357,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							],
+							"name": "Houston, Renfrewshire",
+							"dbpedia_resource": "http://dbpedia.org/resource/Houston,_Renfrewshire"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Kawasaki",
+						"relevance": 0.217032,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.325864
+						},
+						"text": "Rob Kolkman",
+						"relevance": 0.211722,
+						"type": "Person"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Publisher",
+						"relevance": 0.211261,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Europe",
+						"relevance": 0.209046,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Continent"
+							],
+							"name": "Europe",
+							"dbpedia_resource": "http://dbpedia.org/resource/Europe"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Surrey",
+						"relevance": 0.205189,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"StateOrCounty"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Managing Director",
+						"relevance": 0.19485,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Africa",
+						"relevance": 0.18903,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Canada",
+						"relevance": 0.18788,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"AwardDiscipline",
+								"FilmScreeningVenue",
+								"Country"
+							],
+							"name": "Canada",
+							"dbpedia_resource": "http://dbpedia.org/resource/Canada"
+						}
+					},
+					{
+						"count": 3,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "uk@icis.com",
+						"relevance": 0.18788,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "300 tonnes",
+						"relevance": 0.18788,
+						"type": "Quantity"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Four Weeks",
+						"relevance": 0.18788,
+						"type": "Quantity"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "$1,850",
+						"relevance": 0.18788,
+						"type": "Quantity"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "$1",
+						"relevance": 0.18788,
+						"type": "Quantity"
+					}
+				],
+				"concepts": [
+					{
+						"text": "Southeast Asia",
+						"relevance": 0.98939,
+						"dbpedia_resource": "http://dbpedia.org/resource/Southeast_Asia"
+					},
+					{
+						"text": "OPEC",
+						"relevance": 0.878875,
+						"dbpedia_resource": "http://dbpedia.org/resource/OPEC"
+					},
+					{
+						"text": "Petroleum",
+						"relevance": 0.740244,
+						"dbpedia_resource": "http://dbpedia.org/resource/Petroleum"
+					},
+					{
+						"text": "Bangkok",
+						"relevance": 0.718582,
+						"dbpedia_resource": "http://dbpedia.org/resource/Bangkok"
+					},
+					{
+						"text": "Pacific Ocean",
+						"relevance": 0.707634,
+						"dbpedia_resource": "http://dbpedia.org/resource/Pacific_Ocean"
+					},
+					{
+						"text": "1977",
+						"relevance": 0.692183,
+						"dbpedia_resource": "http://dbpedia.org/resource/1977"
+					},
+					{
+						"text": "Indonesia",
+						"relevance": 0.685896,
+						"dbpedia_resource": "http://dbpedia.org/resource/Indonesia"
+					},
+					{
+						"text": "Asia",
+						"relevance": 0.659619,
+						"dbpedia_resource": "http://dbpedia.org/resource/Asia"
+					}
+				],
+				"categories": [
+					{
+						"score": 0.481389,
+						"label": "/business and industrial/chemicals industry/plastics and polymers"
+					},
+					{
+						"score": 0.335674,
+						"label": "/business and industrial/energy/coal"
+					},
+					{
+						"score": 0.308425,
+						"label": "/business and industrial/energy/oil"
+					}
+				]
+			},
+			"highlight": {
+				"html": [
+					" buying appetite, with <em>suppliers</em> citing increased spot enquiries for emulsion resins applications",
+					", in turn, compelled downstream (PMMA) <em>suppliers</em> to raise their asking levels even as overall demand"
+				],
+				"text": [
+					" import buying appetite, with <em>suppliers</em> citing increased spot enquiries for emulsion resins applications",
+					", compelled downstream (PMMA) <em>suppliers</em> to raise their asking levels even as overall demand was just"
+				]
+			}
+		},
+		{
+			"id": "af0956abaf69f6eb02e2396cca3ed7f1",
+			"score": 0.13668202,
+			"extracted_metadata": {
+				"title": "no title",
+				"sha1": "005688d3082a841d694c792dedf5762f686a06bf",
+				"filename": "Methyl Methacrylate (Asia-Pacific) 7 Oct 2016.pdf20170721-7-1k3g9ff.pdf",
+				"file_type": "pdf"
+			},
+			"html": "<?xml version='1.0' encoding='UTF-8' standalone='yes'?><html>\n<head>\n    <meta content=\"text/html; charset=UTF-8\" http-equiv=\"Content-Type\"/><title>no title</title></head>\n<body><table border=\"1\"><tbody><tr><td><p><b>SPOT PRICES - CARGOES OF 500 MT OR MORE \n</b></p></td></tr></tbody></table><p><b>  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  </b>USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01\n<b>CFR Taiwan  </b>USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01\n<b>CFR South Korea  </b>USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01\n</p><table border=\"1\"><tbody><tr><td><p><b>SPOT PRICES - CARGOES OF 20 - 300 MT \n</b></p></td></tr></tbody></table><p><b>  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  </b>USD/tonne +30 1830.00-1880.00 +30 1780.00-1850.00 83.01-85.28\n</p><p><b><i>NOTE: Please click </i></b><b><i><a href=\"http://www.icis.com/about/methodology\">here</a></i></b><b><i> for full details on the criteria ICIS pricing uses in making these price assessmen...",
+			"text": "no title\n\nSPOT PRICES - CARGOES OF 500 MT OR MORE \n\n  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01 CFR Taiwan  USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01 CFR South Korea  USD/tonne +30 1825.00-1830.00 +30 1775.00-1780.00 82.78-83.01\n\nSPOT PRICES - CARGOES OF 20 - 300 MT \n\n  Price Range Four Weeks Ago US CTS/lb CFR SE Asia  USD/tonne +30 1830.00-1880.00 +30 1780.00-1850.00 83.01-85.28\n\nNOTE: Please click here for full details on the criteria ICIS pricing uses in making these price assessments.\n\nSubscriber note: ICIS is currently consulting readers about the methodology used for this report. To respond please go to:\n\nhttps://www.icis.com/compliance/documents/methyl-methacrylate-mma-methodology-consultation-2016-2/\n\n \n\nSubscriber note: The domestic yuan (CNY) prices in the Methyl Methacrylate (Asia Pacific) weekly report on 7 October 2016 will not be assessed due to a public holiday in China. For more details on the publishi...",
+			"enriched_text": {
+				"sentiment": {
+					"document": {
+						"score": -0.0991798,
+						"label": "negative"
+					}
+				},
+				"entities": [
+					{
+						"count": 11,
+						"sentiment": {
+							"score": -0.0510523
+						},
+						"text": "Asia",
+						"relevance": 0.957408,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"FieldOfStudy",
+								"Continent"
+							],
+							"name": "Asia",
+							"dbpedia_resource": "http://dbpedia.org/resource/Asia"
+						}
+					},
+					{
+						"count": 6,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asia Pacific",
+						"relevance": 0.937546,
+						"type": "Company"
+					},
+					{
+						"count": 8,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "ICIS",
+						"relevance": 0.886447,
+						"type": "Company"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Methacrylate Asia Pacific",
+						"relevance": 0.76893,
+						"type": "Facility"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "southeast Asia",
+						"relevance": 0.597079,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Region"
+							],
+							"name": "Southeast Asia",
+							"dbpedia_resource": "http://dbpedia.org/resource/Southeast_Asia"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "PMMA Southeast Asia",
+						"relevance": 0.572094,
+						"type": "JobTitle"
+					},
+					{
+						"count": 5,
+						"sentiment": {
+							"score": -0.668684
+						},
+						"text": "US",
+						"relevance": 0.51489,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 4,
+						"sentiment": {
+							"score": 0.455008
+						},
+						"text": "China",
+						"relevance": 0.473198,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Region",
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"FilmScreeningVenue",
+								"Country"
+							],
+							"name": "China",
+							"dbpedia_resource": "http://dbpedia.org/resource/China"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "MMA",
+						"relevance": 0.448581,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [],
+							"name": "MIDI Manufacturers Association",
+							"dbpedia_resource": "http://dbpedia.org/resource/MIDI_Manufacturers_Association"
+						}
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "South Korea",
+						"relevance": 0.394253,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"Country"
+							],
+							"name": "South Korea",
+							"dbpedia_resource": "http://dbpedia.org/resource/South_Korea"
+						}
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Quadrant House",
+						"relevance": 0.372422,
+						"type": "Facility"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0.456686
+						},
+						"text": "Editor",
+						"relevance": 0.352782,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "MT",
+						"relevance": 0.333774,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"StateOrCounty"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Melanie Wee",
+						"relevance": 0.310785,
+						"type": "Person"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.736629
+						},
+						"text": "US Federal Reserve",
+						"relevance": 0.310116,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [],
+							"name": "Federal Reserve System",
+							"dbpedia_resource": "http://dbpedia.org/resource/Federal_Reserve_System"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "United Kingdom",
+						"relevance": 0.308903,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [
+								"Location",
+								"AdministrativeDivision",
+								"Country",
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"MeteorologicalService"
+							],
+							"name": "United Kingdom",
+							"dbpedia_resource": "http://dbpedia.org/resource/United_Kingdom"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.600739
+						},
+						"text": "OPEC",
+						"relevance": 0.303235,
+						"type": "Organization",
+						"disambiguation": {
+							"subtype": [],
+							"name": "OPEC",
+							"dbpedia_resource": "http://dbpedia.org/resource/OPEC"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Asahi Kasei Corp",
+						"relevance": 0.302814,
+						"type": "Company"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Japan",
+						"relevance": 0.302571,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Kingdom",
+								"Country"
+							],
+							"name": "Empire of Japan",
+							"dbpedia_resource": "http://dbpedia.org/resource/Empire_of_Japan"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.325864
+						},
+						"text": "Rob Kolkman",
+						"relevance": 0.289972,
+						"type": "Person"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Surrey",
+						"relevance": 0.289199,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"City"
+							],
+							"name": "Surrey, British Columbia",
+							"dbpedia_resource": "http://dbpedia.org/resource/Surrey,_British_Columbia"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "UK",
+						"relevance": 0.289123,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"MeteorologicalService",
+								"Country"
+							],
+							"name": "United Kingdom",
+							"dbpedia_resource": "http://dbpedia.org/resource/United_Kingdom"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": -0.6848
+						},
+						"text": "Asia-Pacific",
+						"relevance": 0.285182,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0.495713
+						},
+						"text": "Consulting | Magazine",
+						"relevance": 0.281645,
+						"type": "PrintMedia"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Singapore",
+						"relevance": 0.279856,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							],
+							"name": "Singapore",
+							"dbpedia_resource": "http://dbpedia.org/resource/Singapore"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Mitsubishi Gas Chemical Co",
+						"relevance": 0.277094,
+						"type": "Company"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Kawasaki",
+						"relevance": 0.274707,
+						"type": "Company"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Niigata",
+						"relevance": 0.270758,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Managing Director",
+						"relevance": 0.267325,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Houston",
+						"relevance": 0.265977,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"City"
+							],
+							"name": "Houston, Renfrewshire",
+							"dbpedia_resource": "http://dbpedia.org/resource/Houston,_Renfrewshire"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "London",
+						"relevance": 0.265169,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"AdministrativeDivision",
+								"GovernmentalJurisdiction",
+								"OlympicHostCity",
+								"PlaceWithNeighborhoods",
+								"City"
+							],
+							"name": "London",
+							"dbpedia_resource": "http://dbpedia.org/resource/London"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Publisher",
+						"relevance": 0.262032,
+						"type": "JobTitle"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Europe",
+						"relevance": 0.259725,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Continent"
+							],
+							"name": "Europe",
+							"dbpedia_resource": "http://dbpedia.org/resource/Europe"
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Surrey",
+						"relevance": 0.255605,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"StateOrCounty"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Africa",
+						"relevance": 0.234693,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"Country"
+							]
+						}
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Canada",
+						"relevance": 0.233145,
+						"type": "Location",
+						"disambiguation": {
+							"subtype": [
+								"GovernmentalJurisdiction",
+								"Kingdom",
+								"AwardDiscipline",
+								"FilmScreeningVenue",
+								"Country"
+							],
+							"name": "Canada",
+							"dbpedia_resource": "http://dbpedia.org/resource/Canada"
+						}
+					},
+					{
+						"count": 3,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "uk@icis.com",
+						"relevance": 0.233145,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 3,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "300 tonnes",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "Four Weeks",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					},
+					{
+						"count": 2,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "$1",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "100,000 tonne",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "csc@icis.com",
+						"relevance": 0.233145,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "wee@icis.com",
+						"relevance": 0.233145,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "ap@icis.com",
+						"relevance": 0.233145,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "us@icis.com",
+						"relevance": 0.233145,
+						"type": "EmailAddress"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "500 tonnes",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					},
+					{
+						"count": 1,
+						"sentiment": {
+							"score": 0
+						},
+						"text": "two weeks",
+						"relevance": 0.233145,
+						"type": "Quantity"
+					}
+				],
+				"concepts": [
+					{
+						"text": "Southeast Asia",
+						"relevance": 0.951239,
+						"dbpedia_resource": "http://dbpedia.org/resource/Southeast_Asia"
+					},
+					{
+						"text": "Bangkok",
+						"relevance": 0.739686,
+						"dbpedia_resource": "http://dbpedia.org/resource/Bangkok"
+					},
+					{
+						"text": "Pacific Ocean",
+						"relevance": 0.7213,
+						"dbpedia_resource": "http://dbpedia.org/resource/Pacific_Ocean"
+					},
+					{
+						"text": "Methyl methacrylate",
+						"relevance": 0.718918,
+						"dbpedia_resource": "http://dbpedia.org/resource/Methyl_methacrylate"
+					},
+					{
+						"text": "Asia",
+						"relevance": 0.663771,
+						"dbpedia_resource": "http://dbpedia.org/resource/Asia"
+					},
+					{
+						"text": "Indonesia",
+						"relevance": 0.656574,
+						"dbpedia_resource": "http://dbpedia.org/resource/Indonesia"
+					},
+					{
+						"text": "Philippines",
+						"relevance": 0.633292,
+						"dbpedia_resource": "http://dbpedia.org/resource/Philippines"
+					},
+					{
+						"text": "Islam",
+						"relevance": 0.615636,
+						"dbpedia_resource": "http://dbpedia.org/resource/Islam"
+					}
+				],
+				"categories": [
+					{
+						"score": 0.520488,
+						"label": "/business and industrial/chemicals industry/plastics and polymers"
+					},
+					{
+						"score": 0.351848,
+						"label": "/business and industrial/energy/coal"
+					},
+					{
+						"score": 0.316765,
+						"label": "/business and industrial/energy/oil"
+					}
+				]
+			},
+			"highlight": {
+				"html": [
+					" the current firm market climate where a majority of regional <em>suppliers</em> are at short positions, a buildup"
+				],
+				"text": [
+					" climate where a majority of regional <em>suppliers</em> are at short positions, a buildup in inventories is needed"
+				]
+			}
+		}
+	]
+}
