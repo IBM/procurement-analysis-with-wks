@@ -19,7 +19,7 @@ before_deploy: npm install -g cf-blue-green
    edge: true
    provider: bluemixcloudfoundry
    username: ramesh.poomalai@in.ibm.com
-   password: March@200
+   password: notapassword
    organization: ramesh.poomalai@in.ibm.com
    space: dev
    manifest: manifest.yml          # (optional)  Defaults to manifest.yml.
