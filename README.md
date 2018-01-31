@@ -56,7 +56,7 @@ Looking at the output of Discovery without WKS we can see that `Asahi Kasei` and
 
 ## Process Flow
 
-![](images/process_flow.png)
+![](doc/source/images/process_flow.png)
 
 The steps followed to create solution is as follows. For commands please refer Running the application on Bluemix section below.
 
@@ -79,9 +79,9 @@ The steps followed to create solution is as follows. For commands please refer R
 
 ## Technical Architecture
 
-![](images/design.png)
+![](doc/source/images/design.png)
 
-![](images/architecture.png)
+![](doc/source/images/architecture.png)
 
 ## Included Components
 * [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
@@ -91,7 +91,7 @@ The steps followed to create solution is as follows. For commands please refer R
 # Steps
 
 ## Deploy the Machine learning model to Discovery
-![](images/deploy_wks_model_to_discovery.png)
+![](doc/source/images/deploy_wks_model_to_discovery.png)
 
 ## Running the application on IBM Cloud
 
