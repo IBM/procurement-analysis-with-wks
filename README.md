@@ -1,6 +1,6 @@
 ![Build Status](https://travis-ci.org/IBM/ProcurementSystem.svg?branch=master)
 
-# Watson Knowledge Studio-Discovery-BM Graph
+# Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
 
 In this code pattern we will be creating a complete end to end solution for a procurement use case. Currently customers perform analysis of various market reports on their own or hire experts to make procurement decision. These experts analyze reports captured from data sources, a process that can be time consuming and prone to human error. This could potentially cause a chain effect of issues that may impact production.
 
@@ -146,3 +146,21 @@ cf api <API_URL> # e.g. https://api.ng.bluemix.net
 cf login
 cf push
 ```
+
+# Troubleshooting
+
+* TBD
+
+# Links
+* [Watson Knowledge Studio](https://www.ibm.com/watson/services/knowledge-studio/)
+* [Watson Discovery](https://www.ibm.com/watson/services/discovery/)
+
+# Learn more
+
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
+* **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
+* **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
+
+# License
+
+[Apache 2.0](LICENSE)
