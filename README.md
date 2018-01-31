@@ -1,94 +1,107 @@
-![Build Status](https://travis-ci.org/rameshpoomalai/ProcurementSystem.svg?branch=master)
-![Bluemix Deployments](https://deployment-tracker.mybluemix.net/stats/4b751f79e33f1202fce05f6ba8c0e740/badge.svg)
+![Build Status](https://travis-ci.org/IBM/ProcurementSystem.svg?branch=master)
 
-Watson Knowledge Studio-Discovery-BM Graph
-In this journey, we will be creating complete end to end solution for procurement use case.
+# Watson Knowledge Studio-Discovery-BM Graph
 
-Currently customers do analysis of various market reports on their own or hire experts to make procurement decision. The expert analyze the reports captured from various data source. This can be time consuming and creates dependency on experts, every time a procurement decision has to be made. There is also probability of human error if expert misses important factor.
-e.g. Assume experts have to analyze various report, different suppliers and their location.If he/she missed to consider some of these factor like plant shutdown and he/she might request a material from the supplier. Now this supplier who has plant down may not able serve the order immediately and that might impact production.
-By using our intelligent procurement system customer can get such expert analysis faster and more accurate. The customer has to initially train the model/system with various use cases(reports).
-The target end user of this system is person who is working for a procurement section in a company or any other stakeholder who has authority to make procurement decisions.
+In this code pattern we will be creating a complete end to end solution for a procurement use case. Currently customers perform analysis of various market reports on their own or hire experts to make procurement decision. These experts analyze reports captured from data sources, a process that can be time consuming and prone to human error. This could potentially cause a chain effect of issues that may impact production.
 
-To understand the significance of wks we will look into details of few entities extracted by discovery without wks model and with wks model.
+By using our intelligent procurement system, based on Watson Discovery, a customer can receive expert analysis more quickly and accurately. The customer must first train the model with various use cases (via reports) to receive accurate results. The target end user of this system is a person working in a procurement role at a company.
 
-Discovery output without wks
-	......
-	"text": "Asahi Kasei Corp",
-	"relevance": 0.227493,
-	"type": "Company"
-	.......
+As a developer going through this code pattern, you will learn how to:
 
-	"text": "Kawasaki",
-	"relevance": 0.274707,
-	"type": "Company"
-	.......
+* Configure Watson Discovery to ...
+* Import a model to Watson Knowledge Studio
+* View the dependencies of a procurement type system using ...
 
-Discovery output with wks
-	.......
-	"id": "-E114",
-	"text": "Asahi Kasei Corp",
-	"type": "Supplier""
-	.......
+As an end user, you will be able to:
 
-	"id": "-E119",
-	"text": "Kawasaki",
-	"type": "Facility"
-	.......
+* Query suppliers for a specific commodity
+* Retrieve information about a supplier and their facility available
+* Query to retrieve supplier constraints
+* Query supply status based on region
 
-  In case of discovery without wks, Asahi Kasei is identified as company as expected from basic nlu processing. It cannot understand procurement domain specific nomenclature. The same is the case with capturing plant name Kawasaki. It identifies Kawasaki as company instead of facility.
-  But in discovery with wks, it identifies Asahi Kasei as supplier and Kawasaki as facility(plant).
+### Watson Discovery with and without Watson Knowledge Studio
+
+To understand the significance of Watson Knowledge Studio (WKS) in this example we will look at the output extracted from Watson Discovery when using with WKS and without using WKS.
+
+Waston Discovery output without WKS:
+
+```
+......
+"text": "Asahi Kasei Corp",
+"relevance": 0.227493,
+"type": "Company"
+.......
+
+"text": "Kawasaki",
+"relevance": 0.274707,
+"type": "Company"
+.......
+```
+
+Watson  Discovery output with WKS:
+```
+.......
+"id": "-E114",
+"text": "Asahi Kasei Corp",
+"type": "Supplier""
+.......
+
+"id": "-E119",
+"text": "Kawasaki",
+"type": "Facility"
+.......
+```
+
+Looking at the output of Discovery without WKS we can see that `Asahi Kasei` and `Kawasaki` are identified as a `company`, this is expected as Discovery without WKS only performs basic Natural Language Understanding (NLU) processing, it cannot understand language specific to the procurement domain. However, if we use Watson Discovery with WKS we can see that `Asahi Kasei` is identified as a `supplier`, whereas `Kawasaki` is identified as a `facility`.
+
+## Process Flow
+
+![](images/Process flow for wks-discovery-graph.png)
 
 The steps followed to create solution is as follows. For commands please refer Running the application on Bluemix section below.
 
-## Watson Knowledge Studio (WKS)
+#### Watson Knowledge Studio (WKS)
 1. We build Type System specific to business domain/use case
 2. We follow human annotation process to identify entities and relationship.
 3. We create machine learning model and train the model till we are satisfied with model.
 4. The corpus document from document tab can be exported which can be imported into new wks project if required.
 
-## Discovery Service
+#### Discovery Service
 1. We create discovery service from bluemix account. The discovery has to be created under US South as services under US South are ONLY visible while deploying wks model into discovery.
 2. We create collection with customized configuration which points to wks model id.
 
-## IBM Graph
+#### IBM Graph
 1. We create graph for this use case by creating schema/initial data for bootstrapping graph.
 
-## Client Application
+#### Client Application
 1. We create client application which calls Discovery Service
 2. The output (json data) of discovery service is parsed and nodes and edges for the graph are created dynamically.
 
-
-## Process Flow
-
-<img src="images/Process flow for wks-discovery-graph.png" width="800" height="350" align="center">
-
 ## Technical Architecture
 
-<img src="images/Technical Architecture.png" width="800" height="350" align="center">
+![](images/Technical Architecture.png)
 
-<img src="images/Technical Architecture - 2.png" width="800" height="350" align="center">
+![](images/Technical Architecture - 2.png)
 
+## Included Components
+* [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
+* [Watson Discovery](https://console.bluemix.net/catalog/services/discovery): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
+* [Compose for JanusGraph](https://console.bluemix.net/catalog/services/compose-for-janusgraph): JanusGraph is a scalable graph database optimized for storing and querying highly-interconnected data modeled as millions or billions of vertices and edges
 
-## Features
-1. User can query to know suppliers for a commodity
-2. User can get info along with supplier and their facility available
-3. User can query to get any supplier constraints
-4. User can query supply status based on country/region.
-Included Components
-a. Watson Knowledge Studio
-b. Bluemix Watson Discovery Service
-c. Client Application
-d. IBM Graph
+# Steps
 
 ## Deploy the Machine learning model to Discovery
-<img src="images/Deploy wks model to discovery 1.png" width="800" height="350" align="center">
+![](images/Deploy wks model to discovery 1.png)
 
-<img src="images/Deploy wks model to discovery 2.png" width="800" height="350" align="center">
+![](images/Deploy wks model to discovery 2.png)
 
+## Running the application on IBM Cloud
 
+1. Click on the `Deploy to Bluemix` button below.
 
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/procurement-system)
 
-## Running the application on Bluemix or other Cloud Foundry platforms
+## Running the application on locally
 
 1. If you do not already have access to a Cloud Foundry PaaS, [sign up for Bluemix](https://console.ng.bluemix.net/registration/).
 
@@ -96,52 +109,42 @@ d. IBM Graph
 
 3. Clone the app to your local environment from your terminal using the following command:
 
-    git clone https://github.ibm.com/IBMDigital/Procurement-System.git
+```
+git clone https://github.com/IBM/procurement-system.git
+```
 
 4. Change into the newly created directory:
 
+```
+cd ProcurementSystem
+```
 
-    cd ProcurementSystem
-
-
-5. Open the `manifest.yml` file and change the `host` value to something unique.
-
-   The host you choose will determine the subdomain of your application's URL.
+5. Open the `manifest.yml` file and change the `host` value to something unique. The host you choose will determine the subdomain of your application's URL.
 
 6. Connect to Bluemix in the command line tool and log in.
 
-
-    cf api <API_URL> # e.g. https://api.ng.bluemix.net
-    cf login
-
+```
+cf api <API_URL> # e.g. https://api.ng.bluemix.net
+cf login
+```
 
 7. Create an instance of the IBM Graph service.
 
-
-    cf create-service "IBM Graph" Standard ProcurementSystemGraph
-
-    cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
+```
+cf create-service "IBM Graph" Standard ProcurementSystemGraph
+cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
+```
 
 8. Create an instance of the Discovery Service.
-
-
-    cf create-service discovery standard ProcurementSystemDiscovery
-    cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
-    cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+```
+cf create-service discovery standard ProcurementSystemDiscovery
+cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+```
 
 9. Push the app.
-
-
-# optionally, log in
-    cf api <API_URL> # e.g. https://api.ng.bluemix.net
-    cf login
-# deploy the app
-  cf push
-
-
-
-
-## Deploy the App
-
-  a. Click on the 'Deploy to Bluemix' button below.
-   [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.ibm.com/IBMDigital/Procurement-System)
+```
+cf api <API_URL> # e.g. https://api.ng.bluemix.net
+cf login
+cf push
+```
