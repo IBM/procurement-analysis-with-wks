@@ -36,6 +36,7 @@
     "md5": "^2.2.1",
     "path": "^0.12.7",
     "pug": "^2.0.0-alpha6",
+    "request-promise": "^4.2.1",
     "watson-developer-cloud": "^2.29.0"
   },
   "engines": {

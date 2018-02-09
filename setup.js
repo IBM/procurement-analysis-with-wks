@@ -17,16 +17,17 @@
  */
 
 require('dotenv').load({ silent: true });
+const JanusGraphClient = require('./JanusGraphClient');
+let graphId = "procurementsystem"
 
 
-var GDS = require('ibm-graph-client');
 
 console.log("Calling setup script");
 var config ;
 // Set config
 if (process.env.APP_SERVICES) {
   var vcapServices = JSON.parse(process.env.APP_SERVICES);
-  var graphService = 'IBM Graph';
+  var graphService = 'compose-for-janusgraph';
   if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
     config = vcapServices[graphService][0];
   }
@@ -36,46 +37,24 @@ if (process.env.APP_SERVICES) {
 }
 if (process.env.VCAP_SERVICES) {
   var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-  var graphServiceName = 'IBM Graph';
+  var graphServiceName = 'compose-for-janusgraph';
   if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
     config = vcapServices[graphServiceName][0];
   }
 }
 
 // Add the graph
-var graph = new GDS({
-  url:  config.credentials.apiURL,
-  username:  config.credentials.username,
-  password:  config.credentials.password,
-});
+let graphClient = new JanusGraphClient(
+    config.credentials.apiURL,
+    config.credentials.username,
+    config.credentials.password
+);
 
 var gremlin =  require('./data/gremlin.json');
 
-// Set Schema
-graph.session(function (token) {
-  graph.config.session = token;
-  console.log("Print the existing Schema");
-
-  graph.schema().get(function (error, body) {
-    console.log(JSON.stringify(body));
-  });
-  console.log("Set updated schema");
-  var schema = require('./data/schema.json');
-  graph.schema().set(schema, function (error, body) {
-    if (error) {
-      console.log('Error:', error);
-      console.log(body);
-    } else {
-      console.log(body.result.data);
-    }
-    console.log("Creating the Bootgraph Data");
-      graph.gremlin(gremlin.gremlin.join('\n'), function (e, b) {
-        if (e) {
-          console.log("Error:",e);
-        }
-        console.log("Response:",b);
-      });
-  });
-
-
+graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
+.then((res) => {
+    console.log("Response:"+res);
+}).catch(function(rej) {
+    console.log("Error executing the gramlin query.."+rej);
 });

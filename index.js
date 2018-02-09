@@ -199,7 +199,7 @@ server.route({
         reply(response);
     }).catch(function(rej) {
         console.log("Error executing the gramlin query.."+rej);
-      });
+    });
   },
 });
 
