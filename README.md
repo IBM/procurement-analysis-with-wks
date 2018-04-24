@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/IBM/ProcurementSystem.svg?branch=master)
+![Build Status](https://travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)
 
 # Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
 
@@ -58,7 +58,7 @@ Looking at the output of Discovery without WKS we can see that `Asahi Kasei` and
 
 ![](doc/source/images/process_flow.png)
 
-The steps followed to create solution is as follows. For commands please refer Running the application on Bluemix section below.
+The steps followed to create solution is as follows. For commands please refer Running the application on IBM Cloud section below.
 
 #### Watson Knowledge Studio (WKS)
 1. We build Type System specific to business domain/use case
@@ -95,13 +95,13 @@ The steps followed to create solution is as follows. For commands please refer R
 
 ## Running the application on IBM Cloud
 
-1. Click on the `Deploy to Bluemix` button below.
+1. Click on the `Deploy to IBM Cloud` button below.
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/procurement-system)
+[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/procurement-analysis-with-wks)
 
 ## Running the application on locally
 
-1. If you do not already have access to a Cloud Foundry PaaS, [sign up for Bluemix](https://console.ng.bluemix.net/registration/).
+1. If you do not already have access to a Cloud Foundry PaaS, [sign up for IBM Cloud](https://console.ng.bluemix.net/registration/).
 
 2. Download and install the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli).
 
@@ -119,7 +119,7 @@ cd ProcurementSystem
 
 5. Open the `manifest.yml` file and change the `host` value to something unique. The host you choose will determine the subdomain of your application's URL.
 
-6. Connect to Bluemix in the command line tool and log in.
+6. Connect to IBM Cloud in the command line tool and log in.
 
 ```
 cf api <API_URL> # e.g. https://api.ng.bluemix.net
