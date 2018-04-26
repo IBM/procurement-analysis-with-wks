@@ -10,8 +10,8 @@ class JanusGraphClient {
      * @param {String} username - JanusGraph username
 	 * @param {String} password - JanusGraph password
      */
-    constructor(url, username, password) {
-    	this.url = url;
+    constructor(graphurl, username, password) {
+    	this.url = graphurl;
     	this.username = username;
     	this.password = password;
     	this.authHeader = 'Basic '+ new Buffer(this.username + ":" + this.password).toString("base64");
@@ -28,6 +28,8 @@ class JanusGraphClient {
 			json: true,
 			body: body
 		};
+
+
     	return options;
 	}
 

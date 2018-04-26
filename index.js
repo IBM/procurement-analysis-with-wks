@@ -39,6 +39,7 @@ if (process.env.APP_SERVICES) {
   if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
     var config = vcapServices[graphService][0];
   }
+
 }
 if (process.env.VCAP_SERVICES) {
   var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
@@ -50,10 +51,12 @@ if (process.env.VCAP_SERVICES) {
 
 
 
+
 let graphClient = new JanusGraphClient(
-    config.credentials.apiURL,
-    config.credentials.username,
-    config.credentials.password
+
+    config.credentials.apiURL || process.env.service_url,
+    config.credentials.username || process.env.service_username,
+    config.credentials.password || process.env.service_password
 );
 
 
