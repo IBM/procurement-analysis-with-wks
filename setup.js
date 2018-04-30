@@ -44,21 +44,9 @@ if (process.env.VCAP_SERVICES) {
   }
 }
 
-console.log('url: ' + config.credentials.apiURL);
-console.log('username: ' + config.credentials.username);
-console.log('password: ' + config.credentials.password);
-
-// https://admin:GVZRJPOPLFHGPIHQ@portal-ssl1412-14.bmix-dal-yp-3ccb4d58-bd36-4d72-8815-d353bb1ce7e6.rich-hagarty-ibm-com.composedb.com:40748/session
-// https://admin:GVZRJPOPLFHGPIHQ@portal-ssl1751-1.bmix-dal-yp-3ccb4d58-bd36-4d72-8815-d353bb1ce7e6.rich-hagarty-ibm-com.composedb.com:40748/session
-
 // Add the graph
-// var graph = new GDS({
-//   url:  config.credentials.apiURL,
-//   username:  config.credentials.username,
-//   password:  config.credentials.password,
-// });
 var graph = new GDS({
-  url:  "https://admin:GVZRJPOPLFHGPIHQ@portal-ssl1412-14.bmix-dal-yp-3ccb4d58-bd36-4d72-8815-d353bb1ce7e6.rich-hagarty-ibm-com.composedb.com:40748/session",
+  url:  config.credentials.apiURL,
   username:  config.credentials.username,
   password:  config.credentials.password,
 });
