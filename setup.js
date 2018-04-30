@@ -18,10 +18,12 @@
 
 require('dotenv').load({ silent: true });
 
-
 var GDS = require('ibm-graph-client');
 
 console.log("Calling setup script");
+console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
+
+
 var config ;
 // Set config
 if (process.env.APP_SERVICES) {
@@ -49,33 +51,41 @@ var graph = new GDS({
   password:  config.credentials.password,
 });
 
-var gremlin =  require('./data/gremlin.json');
+var gremlin = require('./data/gremlin.json');
 
 // Set Schema
-graph.session(function (token) {
-  graph.config.session = token;
-  console.log("Print the existing Schema");
+graph.session(function (err, token) {
+  if (err) {
+    console.log('Error: ' + err);
+  } else {
+    graph.config.session = token;
 
-  graph.schema().get(function (error, body) {
-    console.log(JSON.stringify(body));
-  });
-  console.log("Set updated schema");
-  var schema = require('./data/schema.json');
-  graph.schema().set(schema, function (error, body) {
-    if (error) {
-      console.log('Error:', error);
-      console.log(body);
-    } else {
-      console.log(body.result.data);
-    }
-    console.log("Creating the Bootgraph Data");
+    const util = require('util');
+    console.log('graph: ');
+    console.log(util.inspect(graph, false, null));
+      
+    console.log("Print the existing Schema");
+
+    graph.schema().get(function (error, body) {
+      console.log(JSON.stringify(body));
+    });
+    console.log("Set updated schema");
+    var schema = require('./data/schema.json');
+    graph.schema().set(schema, function (error, body) {
+      if (error) {
+        console.log('Error:', error);
+        console.log(body);
+      } else {
+        console.log(body.result.data);
+      }
+      console.log("Creating the Bootgraph Data");
       graph.gremlin(gremlin.gremlin.join('\n'), function (e, b) {
         if (e) {
           console.log("Error:",e);
         }
         console.log("Response:",b);
       });
-  });
-
+    });
+  }
 
 });

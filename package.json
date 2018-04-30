@@ -1,11 +1,10 @@
 {
-  "name": "ProcurementSystem",
-  "version": "0.0.1",
+  "name": "procurement-analysis-with-wks",
+  "version": "1.0.0",
   "description": "Procurement System Demo",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-
     "start-dev": "nodemon --ext js,jade,env index.js",
     "postinstall": "npm run setup",
     "setup": "node setup.js",
@@ -13,18 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.ibm.com/IBMDigital/Procurement-System.git"
+    "url": "https://github.com/IBM/procurement-analysis-with-wks.git"
   },
   "author": "Ramesh Poomalai <ramesh.poomalai@in.ibm.com>,Rajesh H Gudikoti <ragudiko@in.ibm.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.ibm.com/IBMDigital/Procurement-System/issues"
+    "url": "https://github.com/IBM/procurement-analysis-with-wks/issues"
   },
-  "homepage": "https://github.ibm.com/IBMDigital/Procurement-System",
+  "homepage": "https://github.com/IBM/procurement-analysis-with-wks",
   "dependencies": {
     "argparse": "^1.0.2",
     "async": "^2.0.1",
-    "cf-deployment-tracker-client": "^0.x",
     "cfenv": "^1.0.3",
     "dotenv": "^2.0.0",
     "fast-csv": "^0.6.0",
@@ -44,5 +42,4 @@
   "devDependencies": {
     "jshint": "^2.9.4"
   }
-
 }

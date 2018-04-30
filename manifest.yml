@@ -1,24 +1,22 @@
 ---
 declared-services:
-  ProcurementSystemGraph:
-    label: IBM Graph
+  paww-janus-graph-service:
+    label: compose-for-janusgraph
     plan: Standard
-  ProcurementSystemDiscovery:
+  paww-discovery-service:
     label: discovery
     plan: free
 applications:
-- name: ProcurementSystem
+- name: procurement-analysis-with-wks
   memory: 256M
-  framework: node
   instances: 1
   path: .
   buildpack: sdk-for-nodejs
-  host: ProcurementSystemDemo
-  random-route: true
+  random-route: false
   services:
-  - ProcurementSystemGraph
-  - ProcurementSystemDiscovery
+  - paww-janus-graph-service
+  - paww-discovery-service
   env:
-    environment_id: c1cebfb0-0cc5-4c4b-b4e3-76733852e736
-    configuration_id: be94907f-e7cc-4915-95f5-84dcc23ae5e7
-    collection_id: e804e587-e7b2-4c1a-8a38-f69bc60d6d22
+    environment_id: placeholder
+    configuration_id: placeholder
+    collection_id: placeholder
