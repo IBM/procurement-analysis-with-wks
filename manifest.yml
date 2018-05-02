@@ -1,13 +1,9 @@
 ---
 declared-services:
-<<<<<<< HEAD
-  ProcurementSystemdiscoveryservice:
-=======
   paww-janus-graph-service:
     label: compose-for-janusgraph
     plan: Standard
   paww-discovery-service:
->>>>>>> origin/master
     label: discovery
     plan: free
 applications:
@@ -18,20 +14,9 @@ applications:
   buildpack: sdk-for-nodejs
   random-route: false
   services:
-<<<<<<< HEAD
-  - ProcurementSystemdiscoveryservice
-  env:
-    environment_id: c1cebfb0-0cc5-4c4b-b4e3-76733852e736
-    configuration_id: be94907f-e7cc-4915-95f5-84dcc23ae5e7
-    collection_id: e804e587-e7b2-4c1a-8a38-f69bc60d6d22
-    service_url: https://portal-ssl611-19.bmix-dal-yp-f8d986d2-7272-484b-9dea-160765445793.devadvo-us-ibm-com.composedb.com:34140
-    service_username: admin
-    service_password: ZJVMMPUXEXNVSQYA
-=======
   - paww-janus-graph-service
   - paww-discovery-service
   env:
     environment_id: placeholder
     configuration_id: placeholder
     collection_id: placeholder
->>>>>>> origin/master

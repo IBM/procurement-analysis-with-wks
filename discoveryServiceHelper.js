@@ -1,6 +1,5 @@
-<<<<<<< HEAD
+
 'use strict';
-=======
 /**
  * Copyright 2016 IBM Corp. All Rights Reserved.
  *
@@ -16,8 +15,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
->>>>>>> origin/master
-
 // Load env
 // require('dotenv').load({ silent: true });
 (function() {

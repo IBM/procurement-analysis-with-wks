@@ -240,6 +240,3 @@ server.start(function (err) {
     console.log('Server started at: ' + server.info.uri);
   }
 });
-
-//---Deployment Tracker---------------------------------------------------------
-require('cf-deployment-tracker-client').track();
