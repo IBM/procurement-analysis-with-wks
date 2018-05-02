@@ -1,18 +1,24 @@
 ---
 declared-services:
+<<<<<<< HEAD
   ProcurementSystemdiscoveryservice:
+=======
+  paww-janus-graph-service:
+    label: compose-for-janusgraph
+    plan: Standard
+  paww-discovery-service:
+>>>>>>> origin/master
     label: discovery
     plan: free
 applications:
-- name: ProcurementSystem
+- name: procurement-analysis-with-wks
   memory: 256M
-  framework: node
   instances: 1
   path: .
   buildpack: sdk-for-nodejs
-  host: ProcurementSystemDemo
-  random-route: true
+  random-route: false
   services:
+<<<<<<< HEAD
   - ProcurementSystemdiscoveryservice
   env:
     environment_id: c1cebfb0-0cc5-4c4b-b4e3-76733852e736
@@ -21,3 +27,11 @@ applications:
     service_url: https://portal-ssl611-19.bmix-dal-yp-f8d986d2-7272-484b-9dea-160765445793.devadvo-us-ibm-com.composedb.com:34140
     service_username: admin
     service_password: ZJVMMPUXEXNVSQYA
+=======
+  - paww-janus-graph-service
+  - paww-discovery-service
+  env:
+    environment_id: placeholder
+    configuration_id: placeholder
+    collection_id: placeholder
+>>>>>>> origin/master

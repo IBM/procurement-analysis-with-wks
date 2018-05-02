@@ -20,9 +20,16 @@ require('dotenv').load({ silent: true });
 const JanusGraphClient = require('./JanusGraphClient');
 let graphId = "procurementsystem"
 
+<<<<<<< HEAD
 
+=======
+var GDS = require('ibm-graph-client');
+>>>>>>> origin/master
 
 console.log("Calling setup script");
+console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
+
+
 var config ;
 // Set config
 if (process.env.APP_SERVICES) {
@@ -50,11 +57,49 @@ let graphClient = new JanusGraphClient(
     config.credentials.password
 );
 
-var gremlin =  require('./data/gremlin.json');
+var gremlin = require('./data/gremlin.json');
 
+<<<<<<< HEAD
 graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
 .then((res) => {
     console.log("Response:"+res);
 }).catch(function(rej) {
     console.log("Error executing the gramlin query.."+rej);
+=======
+// Set Schema
+graph.session(function (err, token) {
+  if (err) {
+    console.log('Error: ' + err);
+  } else {
+    graph.config.session = token;
+
+    const util = require('util');
+    console.log('graph: ');
+    console.log(util.inspect(graph, false, null));
+      
+    console.log("Print the existing Schema");
+
+    graph.schema().get(function (error, body) {
+      console.log(JSON.stringify(body));
+    });
+    console.log("Set updated schema");
+    var schema = require('./data/schema.json');
+    graph.schema().set(schema, function (error, body) {
+      if (error) {
+        console.log('Error:', error);
+        console.log(body);
+      } else {
+        console.log(body.result.data);
+      }
+      console.log("Creating the Bootgraph Data");
+      graph.gremlin(gremlin.gremlin.join('\n'), function (e, b) {
+        if (e) {
+          console.log("Error:",e);
+        }
+        console.log("Response:",b);
+      });
+    });
+  }
+
+>>>>>>> origin/master
 });
