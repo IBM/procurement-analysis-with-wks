@@ -1,9 +1,6 @@
 ---
 declared-services:
-  ProcurementSystemGraph:
-    label: IBM Graph
-    plan: Standard
-  ProcurementSystemDiscovery:
+  ProcurementSystemdiscoveryservice:
     label: discovery
     plan: free
 applications:
@@ -16,7 +13,7 @@ applications:
   host: ProcurementSystemDemo
   random-route: true
   services:
-  - ProcurementSystemGraph
+  - ProcurementSystemdiscoveryservice
   env:
     environment_id: c1cebfb0-0cc5-4c4b-b4e3-76733852e736
     configuration_id: be94907f-e7cc-4915-95f5-84dcc23ae5e7
