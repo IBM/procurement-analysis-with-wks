@@ -54,10 +54,15 @@ let graphClient = new JanusGraphClient(
 );
 
 var gremlin = require('./data/gremlin.json');
-
-graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
-.then((res) => {
+graphClient.getOrCreateGraph(graphId).then((res) => {
     console.log("Response:"+res);
+    graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
+    .then((res) => {
+        console.log("Response:"+res);
+    }).catch(function(rej) {
+        console.log("Error executing the gramlin query.."+rej);
+
+    });
 }).catch(function(rej) {
     console.log("Error executing the gramlin query.."+rej);
 
