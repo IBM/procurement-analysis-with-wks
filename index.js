@@ -23,42 +23,39 @@ require('dotenv').load();
 var cfenv     = require('cfenv');
 var Hapi      = require('hapi');
 var Path      = require('path');
-var traversal = require('./assets/traversal');
-var syncservice = require('./discoveryServiceHelper');
-const JanusGraphClient = require('./JanusGraphClient');
-let graphId = "procurementsystem"
-
+var traversal = require('./app/traversal');
+var syncservice = require('./lib/discoveryServiceHelper');
+const JanusGraphClient = require('./lib/JanusGraphClient');
+let graphId = 'procurementsystem';
 
 // Handle Configs
 var appEnv = cfenv.getAppEnv();
 
 // Set config
-if (process.env.APP_SERVICES) {
-  var vcapServices = JSON.parse(process.env.APP_SERVICES);
-  var graphService = 'compose-for-janusgraph';
-  if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
-    var config = vcapServices[graphService][0];
-  }
+var vcapServices;
+var graphServiceName;
+var config;
 
+if (process.env.APP_SERVICES) {
+  vcapServices = JSON.parse(process.env.APP_SERVICES);
+  graphServiceName = 'compose-for-janusgraph';
+  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
+    config = vcapServices[graphServiceName][0];
+  }
 }
 if (process.env.VCAP_SERVICES) {
-  var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-  var graphServiceName = 'compose-for-janusgraph';
+  vcapServices = JSON.parse(process.env.VCAP_SERVICES);
+  graphServiceName = 'compose-for-janusgraph';
   if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    var config = vcapServices[graphServiceName][0];
+    config = vcapServices[graphServiceName][0];
   }
 }
 
-
-
-
 let graphClient = new JanusGraphClient(
-
-    config.credentials.apiURL || process.env.service_url,
-    config.credentials.username || process.env.service_username,
-    config.credentials.password || process.env.service_password
+  config.credentials.apiURL || process.env.service_url,
+  config.credentials.username || process.env.service_username,
+  config.credentials.password || process.env.service_password
 );
-
 
 var server = new Hapi.Server({
   debug: {
@@ -109,47 +106,45 @@ server.route({
 });
 
 var gremlinQuery = function (request, reply) {
-
   var querytype = (request.params.querytype) ? request.params.querytype : 'scheduled_maintenance';
   var queryPath;
   switch (querytype) {
-    case 'scheduled_maintenance':
-        queryPath = traversal.traversal1;
-        break;
-    case 'all_with_full_capacity':
-        queryPath = traversal.traversal2;
-        break;
-    case 'government_regulations':
-        queryPath = traversal.traversal3;
-        break;
-    case 'supply_law':
-        queryPath = traversal.traversal4;
-        break;
-    case 'typhoon':
-        queryPath = traversal.traversal;
-        break;
-    default:
-      queryPath = traversal.traversal;
+  case 'scheduled_maintenance':
+    queryPath = traversal.traversal1;
+    break;
+  case 'all_with_full_capacity':
+    queryPath = traversal.traversal2;
+    break;
+  case 'government_regulations':
+    queryPath = traversal.traversal3;
+    break;
+  case 'supply_law':
+    queryPath = traversal.traversal4;
+    break;
+  case 'typhoon':
+    queryPath = traversal.traversal;
+    break;
+  default:
+    queryPath = traversal.traversal;
 
-}
-console.log("Gremlin Query:"+queryPath.join('.'));
- // graphservice.gremlin('def g = graph.traversal();' + traversal.traversal.join('.'), function (e, b) {
+  }
+  console.log('Gremlin Query: ' + queryPath.join('.'));
+
   graphClient.runGremlinQuery(graphId, 'def g = graph.traversal();' + queryPath.join('.'))
-  .then((response) => {
+    .then((response) => {
       var returnData = {};
       if (response.result && response.result.data && response.result.data.length > 0) {
-
-          returnData.query = queryPath.toString();
-          returnData.data = response.result.data;
+        returnData.query = queryPath.toString();
+        returnData.data = response.result.data;
       }
-      console.log("Response:"+response);
+      console.log('Gremlin Query Response:');
+      // const util = require('util');
+      // console.log(util.inspect(response, false, null));
+        
       reply(returnData);
-  }).catch(function(rej) {
-
-      console.log("Error executing the gramlin query.."+rej);
-
+    }).catch(function(rej) {
+      console.log('Error executing the gramlin query..' + rej);
     });
-
 };
 
 server.route({
@@ -169,6 +164,7 @@ server.route({
   path: '/knowledgegraph/{querytype}/{nodeTYpe}/{nodeValue}',
   handler: gremlinQuery,
 });
+
 server.route({
   method: 'GET',
   path: '/knowledgegraph/',
@@ -194,42 +190,41 @@ server.route({
   handler: function (request, reply){
     console.log('Called reset Service');
     var response = [];
-    response[0]="Transient data is cleared..";
+    response[0]='Transient data is cleared..';
 
     graphClient.runGremlinQuery(graphId, 'graph.traversal().V().has("type", "transient").drop().iterate();')
-    .then((res) => {
-        console.log("Response:"+res);
+      .then((res) => {
+        console.log('Response:' + res);
         reply(response);
-    }).catch(function(rej) {
-        console.log("Error executing the gramlin query.."+rej);
-    });
+      }).catch(function(rej) {
+        console.log('Error executing the gramlin query..' + rej);
+      });
   },
 });
+
+/*eslint quotes: ["error", "single", { "avoidEscape": true }]*/
 
 server.route({
   method: 'GET',
   path: '/listCommodity',
   handler: function (request, reply) {
-
-      let query = `g.V().hasLabel("Commodity").has("name", "MMA")`;
-      return graphClient.runGremlinQuery(graphId, `def g = graph.traversal(); ${query}`)
-          .then((response) => {
-            var productList = [];
-            if (response.result && response.result.data && response.result.data.length > 0) {
-                console.log("response.result.data:"+ JSON.stringify(response.result.data));
-                //var b = JSON.parse(response.result.data);
-                for (var i = 0; i < response.result.data.length; i++) {
-                  var product = response.result.data[i];
-                  productList.push(product.properties.name[0].value);
-                }
-            }
-            reply(productList);
-          }).catch(function(rej) {
-
-              console.log("Error executing the gramlin query.."+rej);
-
-            });
-     },
+    let query = "g.V().hasLabel('Commodity').has('name', 'MMA')";
+    return graphClient.runGremlinQuery(graphId, `def g = graph.traversal(); ${query}`)
+      .then((response) => {
+        var productList = [];
+        if (response.result && response.result.data && response.result.data.length > 0) {
+          console.log('response.result.data:' + JSON.stringify(response.result.data));
+          //var b = JSON.parse(response.result.data);
+          for (var i = 0; i < response.result.data.length; i++) {
+            var product = response.result.data[i];
+            productList.push(product.properties.name[0].value);
+          }
+        }
+        reply(productList);
+      }).catch(function(rej) {
+        console.log('Error executing the gramlin query..' + rej);
+      });
+  },
 });
 
 // Start Hapi
