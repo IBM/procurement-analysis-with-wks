@@ -100,7 +100,9 @@ The steps followed to create solution is as follows. For commands please refer R
 8. [Create the model](#8-create-the-model)
 9. [Deploy the machine learning model to Discovery](#9-deploy-the-machine-learning-model-to-discoveru)
 10. [Create and Configure a Watson Discovery Collection](#10-create-and-configure-a-watson-discovery-collection)
-11. [Run the application](#11-run-the-application)
+11. [Configure credentials](#11-configure-credentials)
+12. [Run the application](#12-run-the-application)
+13. [Deploy and run the application on IBM Cloud](#13-deploy-and-run-the-application-on-ibm-cloud)
 
 ## 1. Clone the repo
 
@@ -295,59 +297,68 @@ From the new collection data panel, under `Add data to this collection` use `Dra
 
 ![](doc/source/images/discovery/load-docs.png)
 
-## Running the application on IBM Cloud
+## 11. Configure credentials
+```
+cp env.sample .env
+```
+Edit the `.env` file with the necessary settings.
 
-1. Click on the `Deploy to IBM Cloud` button below.
-
-[![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM/procurement-analysis-with-wks)
-
-## Running the application locally
-
-1. If you do not already have access to a Cloud Foundry PaaS, [sign up for IBM Cloud](https://console.ng.bluemix.net/registration/).
-
-2. Download and install the [Cloud Foundry CLI](https://github.com/cloudfoundry/cli).
-
-3. Clone the app to your local environment from your terminal using the following command:
+#### `env.sample:`
 
 ```
-git clone https://github.com/IBM/procurement-system.git
+# Replace the credentials here with your own.
+# Rename this file to .env before starting the app.
+
+# Credentials for JanusGraph and Discovery services
+APP_SERVICES={"compose-for-janusgraph":[{"name": "GraphDB","label": "IBM Graph","plan": "Standard","credentials": {"apiURL": "<add_janusgraph_url>","username": "admin","password": "<add_janusgraph_password>"}}],"discovery": [{"name": "DiscoveryService","label": "discovery","plan": "free","credentials": {"apiURL": "https://gateway.watsonplatform.net/discovery/api","username":"<add_discovery_username>","password": "<add_discovery_password>"}}]}
+
+# Discovery data IDs
+environment_id="<add_discovery_environment_id>"
+configuration_id="<add_discovery_configuration_id>"
+collection_id="<add_discovery_collection_id>"
 ```
 
-4. Change into the newly created directory:
+## 12. Run the application
+
+1. Install [Node.js](https://nodejs.org/en/) runtime or NPM.
+1. Start the app by running `npm install`, followed by `npm start`.
+1. Access the UI by pointing your browser at `localhost:6003`.
+
+## 13. Deploy and run the application on IBM Cloud
+
+To deploy to the IBM Cloud, make sure have the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
 
 ```
-cd ProcurementSystem
-```
-
-5. Open the `manifest.yml` file and change the `host` value to something unique. The host you choose will determine the subdomain of your application's URL.
-
-6. Connect to IBM Cloud in the command line tool and log in.
-
-```
-cf api <API_URL> # e.g. https://api.ng.bluemix.net
+cd procurement-analysis-with-wks
 cf login
 ```
 
-7. Create an instance of the IBM Graph service.
+When pushing your app to the IBM Cloud, values are read in from the [manifest.yml](manifest.yml) file. Edit this file if you need to change any of the default settings, such as application name or the amount of memory to allocate.
 
 ```
-cf create-service "IBM Graph" Standard ProcurementSystemGraph
-cf create-service-key ProcurementSystemGraph ProcurementSystemGraph
+---
+applications:
+- name: procurement-analysis-with-wks
+  memory: 256M
+  instances: 1
+  path: .
+  buildpack: sdk-for-nodejs
+  random-route: false
 ```
 
-8. Create an instance of the Discovery Service.
+Additionally, your environment variables must be set in your `.env` file as described previously in [Step 11. Configure credentials](#11-configure-credentials).
+
+To deploy your application, run the following command.
+
 ```
-cf create-service discovery standard ProcurementSystemDiscovery
-cf create-service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
-cf service-key ProcurementSystemDiscovery ProcurementSystemDiscoveryServiceKey
+$ cf push
 ```
 
-9. Push the app.
-```
-cf api <API_URL> # e.g. https://api.ng.bluemix.net
-cf login
-cf push
-```
+> NOTE: The URL route assigned to your application will be displayed as a result of this command. Note this value, as it will be required to access your app.
+
+To view the application, go to the IBM Cloud route assigned to your app. Typically, this will take the form `https://<app name>.mybluemix.net`.
+
+To view logs, or get overview information about your app, use the IBM Cloud dashboard.
 
 # Sample UI layout
 
