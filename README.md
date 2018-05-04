@@ -349,6 +349,10 @@ cf login
 cf push
 ```
 
+# Sample UI layout
+
+![](doc/source/images/output-1.png)
+
 # Troubleshooting
 
 * TBD

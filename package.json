@@ -8,7 +8,8 @@
     "start-dev": "nodemon --ext js,jade,env index.js",
     "postinstall": "npm run setup",
     "setup": "node setup.js",
-    "test": "./node_modules/jshint/bin/jshint test/test.express.js"
+    "test": "./node_modules/jshint/bin/jshint test/test.express.js",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "dependencies": {
     "argparse": "^1.0.2",
     "async": "^2.0.1",
+    "babel-eslint": "^8.2.3",
     "cfenv": "^1.0.3",
     "dotenv": "^2.0.0",
     "fast-csv": "^0.6.0",
@@ -40,6 +42,7 @@
     "node": ">=5"
   },
   "devDependencies": {
+    "eslint": "^4.19.1",
     "jshint": "^2.9.4"
   }
 }

@@ -17,30 +17,27 @@
  */
 
 require('dotenv').load({ silent: true });
-const JanusGraphClient = require('./JanusGraphClient');
-let graphId = "procurementsystem"
+const JanusGraphClient = require('./lib/JanusGraphClient');
+let graphId = 'procurementsystem';
 
-
-
-console.log("Calling setup script");
-console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
-
-
-var config ;
 // Set config
+var vcapServices;
+var graphServiceName;
+var config;
+
 if (process.env.APP_SERVICES) {
-  var vcapServices = JSON.parse(process.env.APP_SERVICES);
-  var graphService = 'compose-for-janusgraph';
-  if (vcapServices[graphService] && vcapServices[graphService].length > 0) {
-    config = vcapServices[graphService][0];
+  vcapServices = JSON.parse(process.env.APP_SERVICES);
+  graphServiceName = 'compose-for-janusgraph';
+  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
+    config = vcapServices[graphServiceName][0];
   }
   else {
-    console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES)
+    console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES);
   }
 }
 if (process.env.VCAP_SERVICES) {
-  var vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-  var graphServiceName = 'compose-for-janusgraph';
+  vcapServices = JSON.parse(process.env.VCAP_SERVICES);
+  graphServiceName = 'compose-for-janusgraph';
   if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
     config = vcapServices[graphServiceName][0];
   }
@@ -48,22 +45,25 @@ if (process.env.VCAP_SERVICES) {
 
 // Add the graph
 let graphClient = new JanusGraphClient(
-    config.credentials.apiURL,
-    config.credentials.username,
-    config.credentials.password
+  config.credentials.apiURL,
+  config.credentials.username,
+  config.credentials.password
 );
 
 var gremlin = require('./data/gremlin.json');
+
 graphClient.getOrCreateGraph(graphId).then((res) => {
-    console.log("Response:"+res);
-    graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
+  console.log('Response:' + res);
+  graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
     .then((res) => {
-        console.log("Response:"+res);
+      console.log('Response:' + res);
+      console.log('Gremlin Query Response:');
+      const util = require('util');
+      console.log(util.inspect(res, false, null));
     }).catch(function(rej) {
-        console.log("Error executing the gramlin query.."+rej);
+      console.log('Error executing the gremlin query..' + rej);
 
     });
 }).catch(function(rej) {
-    console.log("Error executing the gramlin query.."+rej);
-
+  console.log('Error executing the gremlin query..' + rej);
 });
