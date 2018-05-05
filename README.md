@@ -107,7 +107,7 @@ The steps followed to create solution is as follows. For commands please refer R
 ## 1. Clone the repo
 
 ```
-$ git clone https://github.com/IBM/procurement-analysis-with-wks
+git clone https://github.com/IBM/procurement-analysis-with-wks
 ```
 
 ## 2. Create IBM Cloud services
@@ -326,7 +326,7 @@ collection_id="<add_discovery_collection_id>"
 
 ## 13. Deploy and run the application on IBM Cloud
 
-To deploy to the IBM Cloud, make sure have the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
+To deploy to the IBM Cloud, make sure you have the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
 
 ```
 cd procurement-analysis-with-wks
@@ -351,7 +351,7 @@ Additionally, your environment variables must be set in your `.env` file as desc
 To deploy your application, run the following command.
 
 ```
-$ cf push
+cf push
 ```
 
 > NOTE: The URL route assigned to your application will be displayed as a result of this command. Note this value, as it will be required to access your app.
