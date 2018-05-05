@@ -1,11 +1,4 @@
 ---
-declared-services:
-  paww-janus-graph-service:
-    label: compose-for-janusgraph
-    plan: Standard
-  paww-discovery-service:
-    label: discovery
-    plan: free
 applications:
 - name: procurement-analysis-with-wks
   memory: 256M
@@ -13,10 +6,3 @@ applications:
   path: .
   buildpack: sdk-for-nodejs
   random-route: false
-  services:
-  - paww-janus-graph-service
-  - paww-discovery-service
-  env:
-    environment_id: placeholder
-    configuration_id: placeholder
-    collection_id: placeholder
