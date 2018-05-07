@@ -1,30 +1,8 @@
 language: node_js
 dist: trusty
-sudo: required
-node_js: 6
+node_js: 8
 script:
-- npm run test
-
+- npm run lint
 cache:
   directories:
   - node_modules
-env:
-  global:
-  - CF_APP=ProcurementSystem
-  - CF_API=https://api.ng.bluemix.net
-  - CF_ORGANIZATION=ramesh.poomalai@in.ibm.com
-  - CF_SPACE=dev
-before_deploy: npm install -g cf-blue-green
- deploy:
-   edge: true
-   provider: bluemixcloudfoundry
-   username: ramesh.poomalai@in.ibm.com
-   password: notapassword
-   organization: ramesh.poomalai@in.ibm.com
-   space: dev
-   manifest: manifest.yml          # (optional)  Defaults to manifest.yml.
-   region: ng                       # (optional)  [ng, eu-gb , au-syd] Defaults to US South region (ng).
-   api: https://api.ng.bluemix.net      # (optional)  Overrides region setting if specifed for Bluemix local installations.
-notifications:
-  email:
-    - ramesh.poomalai@in.ibm.com

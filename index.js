@@ -31,30 +31,10 @@ let graphId = 'procurementsystem';
 // Handle Configs
 var appEnv = cfenv.getAppEnv();
 
-// Set config
-var vcapServices;
-var graphServiceName;
-var config;
-
-if (process.env.APP_SERVICES) {
-  vcapServices = JSON.parse(process.env.APP_SERVICES);
-  graphServiceName = 'compose-for-janusgraph';
-  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    config = vcapServices[graphServiceName][0];
-  }
-}
-if (process.env.VCAP_SERVICES) {
-  vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-  graphServiceName = 'compose-for-janusgraph';
-  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    config = vcapServices[graphServiceName][0];
-  }
-}
-
 let graphClient = new JanusGraphClient(
-  config.credentials.apiURL || process.env.service_url,
-  config.credentials.username || process.env.service_username,
-  config.credentials.password || process.env.service_password
+  process.env.GRAPH_DB_API_URL,
+  process.env.GRAPH_DB_USERNAME,
+  process.env.GRAPH_DB_PASSWORD
 );
 
 var server = new Hapi.Server({

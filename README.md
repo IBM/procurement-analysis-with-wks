@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)
+[![Build Status](https://travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)](https://travis-ci.org/IBM/procurement-analysis-with-wks)
 
 # Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
 
@@ -309,20 +309,40 @@ Edit the `.env` file with the necessary settings.
 # Replace the credentials here with your own.
 # Rename this file to .env before starting the app.
 
-# Credentials for JanusGraph and Discovery services
-APP_SERVICES={"compose-for-janusgraph":[{"name": "GraphDB","label": "IBM Graph","plan": "Standard","credentials": {"apiURL": "<add_janusgraph_url>","username": "admin","password": "<add_janusgraph_password>"}}],"discovery": [{"name": "DiscoveryService","label": "discovery","plan": "free","credentials": {"apiURL": "https://gateway.watsonplatform.net/discovery/api","username":"<add_discovery_username>","password": "<add_discovery_password>"}}]}
+# JanusGraph DB 
+GRAPH_DB_USERNAME=admin
+GRAPH_DB_PASSWORD=<add_janusgraph_password>
+GRAPH_DB_API_URL=<add_janusgraph_api_url>
 
-# Discovery data IDs
-environment_id="<add_discovery_environment_id>"
-configuration_id="<add_discovery_configuration_id>"
-collection_id="<add_discovery_collection_id>"
+# Watson Discovery
+DISCOVERY_USERNAME=<add_discovery_username>
+DISCOVERY_PASSWORD=<add_discovery_password>
+DISCOVERY_ENVIRONMENT_ID=<add_discovery_environment_id>
+DISCOVERY_CONFIGURATION_ID=<add_discovery_configuration_id>
+DISCOVERY_COLLECTION_ID=<add_discovery_collection_id>
+```
+
+The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
+
+For the JanusGraph entries, navigate to the `Service Credentials` panel for the your JanusGraph service instance. The values can be found in the `gremlin_console_yaml` section of the generated credentials. For example:
+
+```
+"gremlin_console_yaml": [
+  "hosts: [portal-ssl204-25.bmix-dal-yp-299e7bd4.test1-ibm-com.composedb.com]\nport: 41590\nusername: admin\npassword: MASHDUVREXMCSZLR\nconnectionPool: { enableSsl: true }\nserializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GryoMessageSerializerV1d0, config: { serializeResultToString: true }}",
+]
+```
+
+In this case, you would set your values to:
+```
+GRAPH_DB_API_URL=https://portal-ssl204-25.bmix-dal-yp-299e7bd4.test1-ibm-com.composedb.com:41590
+GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 ```
 
 ## 12. Run the application
 
 1. Install [Node.js](https://nodejs.org/en/) runtime or NPM.
 1. Start the app by running `npm install`, followed by `npm start`.
-1. Access the UI by pointing your browser at `localhost:6003`.
+1. Access the UI by pointing your browser at the host and port values returnd by the `npm start` command. For example, `http://localhost:6003`.
 
 ## 13. Deploy and run the application on IBM Cloud
 
