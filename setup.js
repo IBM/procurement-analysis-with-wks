@@ -20,34 +20,11 @@ require('dotenv').load({ silent: true });
 const JanusGraphClient = require('./lib/JanusGraphClient');
 let graphId = 'procurementsystem';
 
-// Set config
-var vcapServices;
-var graphServiceName;
-var config;
-
-if (process.env.APP_SERVICES) {
-  vcapServices = JSON.parse(process.env.APP_SERVICES);
-  graphServiceName = 'compose-for-janusgraph';
-  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    config = vcapServices[graphServiceName][0];
-  }
-  else {
-    console.log('process.env.VCAP_SERVICES:'+process.env.APP_SERVICES);
-  }
-}
-if (process.env.VCAP_SERVICES) {
-  vcapServices = JSON.parse(process.env.VCAP_SERVICES);
-  graphServiceName = 'compose-for-janusgraph';
-  if (vcapServices[graphServiceName] && vcapServices[graphServiceName].length > 0) {
-    config = vcapServices[graphServiceName][0];
-  }
-}
-
 // Add the graph
 let graphClient = new JanusGraphClient(
-  config.credentials.apiURL,
-  config.credentials.username,
-  config.credentials.password
+  process.env.GRAPH_DB_API_URL,
+  process.env.GRAPH_DB_USERNAME,
+  process.env.GRAPH_DB_PASSWORD
 );
 
 var gremlin = require('./data/gremlin.json');
@@ -56,7 +33,6 @@ graphClient.getOrCreateGraph(graphId).then((res) => {
   console.log('Response:' + res);
   graphClient.runGremlinQuery(graphId, gremlin.gremlin.join('\n'))
     .then((res) => {
-      console.log('Response:' + res);
       console.log('Gremlin Query Response:');
       const util = require('util');
       console.log(util.inspect(res, false, null));
