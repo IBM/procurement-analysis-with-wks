@@ -29,14 +29,16 @@
     "dotenv": "^2.0.0",
     "fast-csv": "^0.6.0",
     "group-by": "^0.0.1",
-    "hapi": "^8.8.0",
-    "inert": "^3.2.0",
+    "hapi": "^17.4.0",
     "jsonfile": "^3.0.0",
     "md5": "^2.2.1",
     "path": "^0.12.7",
     "pug": "^2.0.0-alpha6",
     "request-promise": "^4.2.1",
-    "watson-developer-cloud": "^2.29.0"
+    "http-proxy-agent": "^2.1.0",
+    "watson-developer-cloud": "^3.4.1",
+    "inert": "^5.1.0",
+    "vision": "^5.3.2"
   },
   "engines": {
     "node": ">=5"
