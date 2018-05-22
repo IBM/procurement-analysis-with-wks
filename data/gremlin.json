@@ -1,5 +1,6 @@
 {
-  "gremlin" : [" def commodity =  graph.addVertex(T.label, \"Commodity\", \"name\", \"MMA\", \"sentiment\", \"neutral\");",
+  "gremlin" : [" graph.traversal().V().drop().iterate();",
+  " def commodity =  graph.addVertex(T.label, \"Commodity\", \"name\", \"MMA\", \"sentiment\", \"neutral\");",
   " def supply =  graph.addVertex(T.label, \"Supply\", \"name\", \"Supply\", \"sentiment\", \"neutral\");",
   " commodity.addEdge(\"has\", supply);",
   " def asiacontinent =  graph.addVertex(T.label, \"Continent\", \"name\", \"Asia\", \"sentiment\", \"neutral\");",

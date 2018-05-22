@@ -51,10 +51,7 @@ var server = new Hapi.Server({
     port: appEnv.port || process.env.PORT || 3000,
 });
 
-
-
-const start = async function () {
-
+ async function start () {
 
     await server.register([{        plugin: require('inert')}, {plugin: require('vision') }] );
 

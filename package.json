@@ -41,7 +41,7 @@
     "vision": "^5.3.2"
   },
   "engines": {
-    "node": ">=5"
+    "node": ">=8"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
