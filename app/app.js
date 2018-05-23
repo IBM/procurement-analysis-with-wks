@@ -86,7 +86,13 @@ function callSync()
   var url = '/knowledgegraph/syncService';
   ajaxRequest.push($.get(url, function (data) {
     $('#the-result').html('<P>'+data+'</P><button id="inprogress" >Click here to close</button>');
-  }));
+  })
+  .fail(function() {
+
+      var loadingSpinner = '<i> Backend service failed with error. </i>';
+      $('#the-result').html(loadingSpinner);
+    })
+);
 }
 
 function callReset()
@@ -100,7 +106,13 @@ function callReset()
   var url = '/knowledgegraph/resetService';
   ajaxRequest.push($.get(url, function (data) {
     $('#the-result').html('<P>'+data+'</P><button id="inprogress" type="button">Click here to close</button>');
-  }));
+  })
+  .fail(function() {
+
+      var loadingSpinner = '<i> Backend service failed with error. </i>';
+      $('#the-result').html(loadingSpinner);
+    })
+);
 }
 
 function callService(value, nodeLabel, nodeText){
@@ -149,39 +161,29 @@ function callService(value, nodeLabel, nodeText){
     var ignoreNodes = [];
     var rawEdges = [];
     var ignoreEdges = [];
+    if(data.data)
+    {
+        for (let i = 0; i < data.data.length; i++) {
+          var path = data.data[i].objects;
+          for (let j = 0; j < path.length; j++) {
+            var obj = path[j];
+            if (obj.type == 'vertex') {
+              if (ignoreNodes.indexOf(obj.id) < 0) {
+                var nodeObject = {
+                  id: obj.id,
+                  label: obj.properties.name[0].value.substring(0, 6)+'..',
+                  title: obj.properties.name[0].value,
+                  nodeLabel: obj.label,
+                  shape: 'circle',
+                  //label : obj.label
+                };
 
-    for (let i = 0; i < data.data.length; i++) {
-      var path = data.data[i].objects;
-      for (let j = 0; j < path.length; j++) {
-        var obj = path[j];
-        if (obj.type == 'vertex') {
-          if (ignoreNodes.indexOf(obj.id) < 0) {
-            var nodeObject = {
-              id: obj.id,
-              label: obj.properties.name[0].value.substring(0, 6)+'..',
-              title: obj.properties.name[0].value,
-              nodeLabel: obj.label,
-              shape: 'circle',
-              //label : obj.label
-            };
+                nodeObject.font = {
+                  color: '#FFFFFF',
+                  size: 12,
+                  face: 'arial',
 
-            nodeObject.font = {
-              color: '#FFFFFF',
-              size: 12,
-              face: 'arial',
-
-            };
-            nodeObject.color = {
-              background:'#048BF9',
-              border:'#713E7F',
-              color: '#FFFFFF',
-              highlight:{
-                background:'green',
-                border:'black',
-              },
-            };
-            if(obj.properties.sentiment) {
-              if (obj.properties.sentiment[0].value == 'Neutral') {
+                };
                 nodeObject.color = {
                   background:'#048BF9',
                   border:'#713E7F',
@@ -191,49 +193,60 @@ function callService(value, nodeLabel, nodeText){
                     border:'black',
                   },
                 };
-              } else if (obj.properties.sentiment[0].value == 'Positive') {
-                nodeObject.color = {
-                  background:'#2B991B',
-                  border:'#713E7F',
-                  color: '#FFFFFF',
-                  highlight:{
-                    background:'green',
-                    border:'black',
-                  },
-                };
-              } else if (obj.properties.sentiment[0].value == 'Negative') {
-                nodeObject.color = {
-                  background:'#F90404',
-                  border:'#713E7F',
-                  color: '#FFFFFF',
-                  highlight:{
-                    background:'green',
-                    border:'black',
-                  },
-                };
+                if(obj.properties.sentiment) {
+                  if (obj.properties.sentiment[0].value == 'Neutral') {
+                    nodeObject.color = {
+                      background:'#048BF9',
+                      border:'#713E7F',
+                      color: '#FFFFFF',
+                      highlight:{
+                        background:'green',
+                        border:'black',
+                      },
+                    };
+                  } else if (obj.properties.sentiment[0].value == 'Positive') {
+                    nodeObject.color = {
+                      background:'#2B991B',
+                      border:'#713E7F',
+                      color: '#FFFFFF',
+                      highlight:{
+                        background:'green',
+                        border:'black',
+                      },
+                    };
+                  } else if (obj.properties.sentiment[0].value == 'Negative') {
+                    nodeObject.color = {
+                      background:'#F90404',
+                      border:'#713E7F',
+                      color: '#FFFFFF',
+                      highlight:{
+                        background:'green',
+                        border:'black',
+                      },
+                    };
 
+                  }
+                }
+                rawNodes.push(nodeObject);
+                ignoreNodes.push(obj.id);
               }
             }
-            rawNodes.push(nodeObject);
-            ignoreNodes.push(obj.id);
+
+            if (obj.type == 'edge') {
+              if (ignoreEdges.indexOf(obj.id) < 0) {
+                rawEdges.push({
+                  from: obj.outV,
+                  to: obj.inV,
+                  label:obj.label,
+                  font: {align: 'middle'},
+                  length:100
+                });
+                ignoreEdges.push(obj.id);
+              }
+            }
           }
         }
-
-        if (obj.type == 'edge') {
-          if (ignoreEdges.indexOf(obj.id) < 0) {
-            rawEdges.push({
-              from: obj.outV,
-              to: obj.inV,
-              label:obj.label,
-              font: {align: 'middle'},
-              length:100
-            });
-            ignoreEdges.push(obj.id);
-          }
-        }
-      }
-    }
-
+}
     console.log(rawNodes);
 
     // create an array with nodes
@@ -259,8 +272,8 @@ function callService(value, nodeLabel, nodeText){
       },
       edges: {
         smooth: true,
-        arrows: {to : true },
-        forceDirection: 'none'
+        arrows: {to : true }
+
       },
       interaction:{
         dragNodes:false,
@@ -297,6 +310,13 @@ function callService(value, nodeLabel, nodeText){
     // if (queryContainer.hasClass('hidden')) {
     //   queryContainer.removeClass('hidden');
     // }
-  }));
+  })
+  .fail(function() {
+
+    var loadingSpinner = '<i> No data found for this query. </i>';
+    $('#query, #the-graph').html(loadingSpinner);
+  })
+
+);
 
 }
