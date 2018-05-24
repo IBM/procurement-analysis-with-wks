@@ -342,7 +342,7 @@ GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 
 1. Install [Node.js](https://nodejs.org/en/) runtime or NPM.
 1. Start the app by running `npm install`, followed by `npm start`.
-1. Access the UI by pointing your browser at the host and port values returnd by the `npm start` command. For example, `http://localhost:6003`.
+1. Access the UI by pointing your browser at the host and port values returned by the `npm start` command. For example, `http://localhost:6003`.
 
 ## 13. Deploy and run the application on IBM Cloud
 
