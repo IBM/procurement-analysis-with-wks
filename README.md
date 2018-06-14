@@ -84,13 +84,11 @@ The process is as follows:
 
 ### Technical Architecture
 
-Here are some additional images to show the relationships and data flows between the major components of this Code Pattern:
+This image shows the relationships and data flows between the major components of this Code Pattern:
 
 > Note: In the image below, NLU is synonomous with Discovery. Either can be used to extract entities and relationships from data sources (both structured and unstructured). 
 
 ![](doc/source/images/tech-architecture-1.png)
-
-![](doc/source/images/tech-architecture-2.png)
 
 ## Included Components
 * [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
