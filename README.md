@@ -25,7 +25,7 @@ As an end user, you will be able to:
 
 To highlight the significance of using Watson Knowledge Studio (WKS) in this example, we will look at the output extracted from Watson Discovery both with and without the use of the WKS model.
 
-Waston Discovery output without WKS:
+Watson Discovery output without WKS:
 
 ```
 ......
