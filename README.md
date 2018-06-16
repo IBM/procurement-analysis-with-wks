@@ -2,28 +2,30 @@
 
 # Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
 
-In this code pattern we will be creating a complete end to end solution for a procurement use case. Currently customers perform analysis of various market reports on their own or hire experts to make procurement decision. These experts analyze reports captured from data sources, a process that can be time consuming and prone to human error. This could potentially cause a chain effect of issues that may impact production.
+In this code pattern we will be creating a complete end-to-end solution for a procurement use case. Currently, customers perform analysis of various market reports on their own or hire experts to make procurement decisions. These experts analyze reports captured from data sources, a process that can be time consuming and prone to human error, which could potentially cause a chain effect of issues that can impact production.
 
-By using our intelligent procurement system, based on Watson Discovery, a customer can receive expert analysis more quickly and accurately. The customer must first train the model with various use cases (via reports) to receive accurate results. The target end user of this system is a person working in a procurement role at a company.
+By using our intelligent procurement system, based on Watson Knowledge Studio (WKS) and Watson Discovery, a customer can receive expert analysis more quickly and accurately. The customer must first train the WKS model with various use cases (via reports) to better catagorize and structure the data so that Watson Discovery can deliver more accurate results. The target end user of this system is a person working in a procurement role at a company.
+
+The data we will be using for this Code Pattern comes from newsletters retrieved from [Borica](http://www.borica.com/Hymer/hymer_newsletter.aspx), a global specialty chemical company. The newsletters contain information regarding global market suppliers, such as facility status, and supply capacities and shortages.
 
 As a developer going through this code pattern, you will learn how to:
 
-* Configure Watson Discovery to ...
-* Import a model to Watson Knowledge Studio
-* View the dependencies of a procurement type system using ...
+* Build a data model in Watson Knowledge Studio.
+* Import that model into Watson Discovery.
+* Graph the dependencies of a procurement type system. 
 
 As an end user, you will be able to:
 
-* Query suppliers for a specific commodity
-* Retrieve information about a supplier and their facility available
-* Query to retrieve supplier constraints
-* Query supply status based on region
+* Query suppliers for a specific commodity.
+* Retrieve information about a supplier and their facility available.
+* Query to retrieve supplier constraints.
+* Query supply status based on region.
 
 ### Watson Discovery with and without Watson Knowledge Studio
 
-To understand the significance of Watson Knowledge Studio (WKS) in this example we will look at the output extracted from Watson Discovery when using with WKS and without using WKS.
+To highlight the significance of using Watson Knowledge Studio (WKS) in this example, we will look at the output extracted from Watson Discovery both with and without the use of the WKS model.
 
-Waston Discovery output without WKS:
+Watson Discovery output without WKS:
 
 ```
 ......
@@ -52,36 +54,41 @@ Watson  Discovery output with WKS:
 .......
 ```
 
-Looking at the output of Discovery without WKS we can see that `Asahi Kasei` and `Kawasaki` are identified as a `company`, this is expected as Discovery without WKS only performs basic Natural Language Understanding (NLU) processing, it cannot understand language specific to the procurement domain. However, if we use Watson Discovery with WKS we can see that `Asahi Kasei` is identified as a `supplier`, whereas `Kawasaki` is identified as a `facility`.
+Looking at the output of Discovery without WKS, we see that `Asahi Kasei` and `Kawasaki` are both identified as a `company`. This is expected as Discovery without WKS only performs basic Natural Language Understanding (NLU) processing, and it doesn't understand language specific to the procurement domain. However, if we use Watson Discovery with WKS we can see that `Asahi Kasei` is identified as a `supplier`, whereas `Kawasaki` is identified as a `facility`.
 
-## Process Flow
+## Flow
+
+![](doc/source/images/architecture.png)
+
+1. Load type system and corpus files into Watson Knowledge Studio.
+2. A user generates a model by training and evaluating data.
+3. The WKS model is deployed to Watson Discovery.
+4. Application queries Watson Discovery for procurement data.
+5. Application sends procurement data to JanusGraph to build a graph.
+6. A user uses the app to select a query to perform, which retrieves the graph data from JanusGraph.
+
+### How does Watson Knowledge Studio work?
+
+The image below explains the process of how Watson Knowledge Studio works in light detail. For greater detail see Steps [4. Upload Type System](#4-upload-type-system) through [9. Deploy the machine learning model to Watson Discovery](#9-deploy-the-machine-learning-model-to-discovery).
 
 ![](doc/source/images/process_flow.png)
 
-The steps followed to create solution is as follows. For commands please refer Running the application on IBM Cloud section below.
+The process is as follows:
 
-#### Watson Knowledge Studio (WKS)
-1. We build Type System specific to business domain/use case
-2. We follow human annotation process to identify entities and relationship.
-3. We create machine learning model and train the model till we are satisfied with model.
-4. The corpus document from document tab can be exported which can be imported into new wks project if required.
+* We build a Type System specific to the business domain/use case.
+* We follow human annotation process to identify entities and relationships.
+* We create a machine learning model and train the model till we are satisfied with the results.
+* The corpus document can be exported and used in a new WKS project, if required.
+* We create a Watson Discovery service from an IBM Cloud account. Note that the service has to be created under the `US South` region so that our WKS model can be used with it.
+* We create a discovery collection with a customized configuration pointing to the WKS model id.
 
-#### Discovery Service
-1. We create discovery service from bluemix account. The discovery has to be created under US South as services under US South are ONLY visible while deploying wks model into discovery.
-2. We create collection with customized configuration which points to wks model id.
+### Technical Architecture
 
-#### IBM Graph
-1. We create graph for this use case by creating schema/initial data for bootstrapping graph.
+This image shows the relationships and data flows between the major components of this Code Pattern:
 
-#### Client Application
-1. We create client application which calls Discovery Service
-2. The output (json data) of discovery service is parsed and nodes and edges for the graph are created dynamically.
+> Note: In the image below, NLU is synonomous with Discovery. Either can be used to extract entities and relationships from data sources (both structured and unstructured). 
 
-## Technical Architecture
-
-![](doc/source/images/design.png)
-
-![](doc/source/images/architecture.png)
+![](doc/source/images/tech-architecture-1.png)
 
 ## Included Components
 * [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
@@ -98,7 +105,7 @@ The steps followed to create solution is as follows. For commands please refer R
 6. [Create an Annotation Set](#6-create-an-annotation-set)
 7. [Create a Task for Human Annotation](#7-create-a-task-for-human-annotation)
 8. [Create the model](#8-create-the-model)
-9. [Deploy the machine learning model to Discovery](#9-deploy-the-machine-learning-model-to-discoveru)
+9. [Deploy the machine learning model to Discovery](#9-deploy-the-machine-learning-model-to-discovery)
 10. [Create and Configure a Watson Discovery Collection](#10-create-and-configure-a-watson-discovery-collection)
 11. [Configure credentials](#11-configure-credentials)
 12. [Run the application](#12-run-the-application)
@@ -114,7 +121,7 @@ git clone https://github.com/IBM/procurement-analysis-with-wks
 
 Create the following services:
 
-* [**Watson Natural Language Understanding**](https://console.bluemix.net/catalog/services/natural-language-understanding)
+* [**Watson Discovery**](https://console.bluemix.net/catalog/services/discovery)
 * [**Watson Knowledge Studio**](https://console.bluemix.net/catalog/services/knowledge-studio)
 * [**Compose for JanusGraph**](https://console.bluemix.net/catalog/services/compose-for-janusgraph)
 
@@ -122,11 +129,11 @@ Create the following services:
 
 Launch the **WKS** tool and create a new **workspace**.
 
-![](doc/source/images/wks/create_new_workspace.png)
+![](doc/source/images/wks/create-new-workspace.png)
 
 ## 4. Upload Type System
 
-A type system allows us to define things that are specific to our SMS messages. The type system controls how content can be annotated by defining the types of entities that can be labeled and how relationships among different entities can be labeled.
+A type system allows us to define things that are specific to our procurement data. The type system controls how content can be annotated by defining the types of entities that can be labeled and how relationships among different entities can be labeled.
 
 To upload our pre-defined type system, from the **Access & Tools -> Entity Types** panel, press the **Upload** button to import the **Type System** file  [data/wks-resources/types-36a431a0-f6a0-11e7-8256-672fd3d48302.json](data/wks-resources/types-36a431a0-f6a0-11e7-8256-672fd3d48302.json) found in the local repository.
 
@@ -146,7 +153,7 @@ From the **Access & Tools -> Documents** panel, press the **Upload Document Sets
 
 > NOTE: Uploading the corpus documents provided in this Code Pattern is not required, but recommended to simplify the annotation process (all provided documents will come pre-annotated). An alternative approach would be to is to upload standard text files and perform the annotations manually.
 
-> NOTE: Select the option to "upload corpus documents and include ground truth (upload the original workspace's type system first)".
+> NOTE: Select the option to "Upload corpus documents and include ground truth (upload the original workspace's type system first)".
 
 ![](doc/source/images/wks/corpus-docs-upload.png)
 
@@ -204,7 +211,7 @@ All documents should change status to **Completed**.
 
 ![](doc/source/images/wks/annotation-set-complete.png)
 
-Press the blue "File" icon to toggle back to the **Task** panel, which will show the completion percentage for each task.
+Press **Change Task** button to toggle back to the **Task** panel, which will show the completion percentage for each task.
 
 ![](doc/source/images/wks/task-complete.png)
 
@@ -242,7 +249,7 @@ Once complete, you will see the results of the train and evaluate process.
 
 ## 9. Deploy the machine learning model to Discovery
 
-Now we can deploy our new model to the already created **Discovery** service. Navigate to the **Version** menu on the left and press **Take Snapshot**.
+Now we can deploy our new model to the already created **Discovery** service. Navigate to the **Versions** menu on the left and press **Take Snapshot**.
 
 ![](doc/source/images/wks/model-versions.png)
 
@@ -293,7 +300,7 @@ Save the configuration by pressing `Apply & Save`, and then `Close`.
 
 Once the configuration is created, you can proceed with loading discovery files.
 
-From the new collection data panel, under `Add data to this collection` use `Drag and drop your documents here or browse from computer` to seed the content with the procurment document files extracted from `data/disco-docs/`.
+From the new collection data panel, under `Add data to this collection` use `Drag and drop your documents here or browse from computer` to seed the content with one or more of the available procurment document files located in `data/disco-docs/`.
 
 ![](doc/source/images/discovery/load-docs.png)
 
@@ -342,7 +349,7 @@ GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 
 1. Install [Node.js](https://nodejs.org/en/) runtime or NPM.
 1. Start the app by running `npm install`, followed by `npm start`.
-1. Access the UI by pointing your browser at the host and port values returnd by the `npm start` command. For example, `http://localhost:6003`.
+1. Access the UI by pointing your browser at the host and port values returned by the `npm start` command. For example, `http://localhost:6003`.
 
 ## 13. Deploy and run the application on IBM Cloud
 
@@ -366,7 +373,7 @@ applications:
   random-route: false
 ```
 
-Additionally, your environment variables must be set in your `.env` file as described previously in [Step 11. Configure credentials](#11-configure-credentials).
+Additionally, your environment variables must be set in your `.env` file as described above in the [Configure credentials](#11-configure-credentials) section.
 
 To deploy your application, run the following command.
 
@@ -386,7 +393,9 @@ To view logs, or get overview information about your app, use the IBM Cloud dash
 
 # Troubleshooting
 
-* TBD
+* Click on a query results in no graph being shown. 
+
+> This means that there is no current data to support the query. This Code Pattern was originally developed to use data from a supplier with very detailed reports. Unfortunately, due to licensing issues, the reporting data supplied with this Code Pattern is very limited. The queries listed in the UI should provide insight into what a typical procurement agent would find useful.
 
 # Links
 * [Watson Knowledge Studio](https://www.ibm.com/watson/services/knowledge-studio/)
