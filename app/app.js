@@ -107,6 +107,7 @@ function callReset()
     $('#the-result').html('<P>'+data+'</P><button id="inprogress" type="button">Click here to close</button>');
   })
     .fail(function() {
+
       var loadingSpinner = '<i> Backend service failed with error. </i>';
       $('#the-result').html(loadingSpinner);
     })
@@ -151,9 +152,6 @@ function callService(value, nodeLabel, nodeText){
   }
 
   ajaxRequest.push($.get(url, function (data) {
-    console.log(data);
-
-    // $('#query').html(data.query);
 
     var rawNodes = [];
     var ignoreNodes = [];
@@ -244,67 +242,74 @@ function callService(value, nodeLabel, nodeText){
           }
         }
       }
-    }
-    console.log(rawNodes);
 
-    // create an array with nodes
-    var nodes = new vis.DataSet(rawNodes);
+      console.log(rawNodes);
 
-    // create an array with edges
-    var edges = new vis.DataSet(rawEdges);
+      // create an array with nodes
+      var nodes = new vis.DataSet(rawNodes);
 
-    // create a network
-    /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "container" || "options" }]*/
-    var container = document.getElementById('the-graph');
-    data = {
-      nodes: nodes,
-      edges: edges,
-    };
-    var layoutMethod = 'directed';
-    var options = {
-      layout: {
-        hierarchical: {
-          sortMethod: layoutMethod,
-          levelSeparation: 200
-        }
-      },
-      edges: {
-        smooth: true,
-        arrows: {to : true }
+      // create an array with edges
+      var edges = new vis.DataSet(rawEdges);
 
-      },
-      interaction:{
-        dragNodes:false,
-        dragView: false,
-        hideEdgesOnDrag: false,
-        hideNodesOnDrag: false,
-        hover: true,
-        hoverConnectedEdges: true,
-        keyboard: {
-          enabled: false,
-          speed: {x: 10, y: 10, zoom: 0.02},
-          bindToWindow: true
+      // create a network
+      /*eslint no-unused-vars: ["error", { "varsIgnorePattern": "container" || "options" }]*/
+      var container = document.getElementById('the-graph');
+      data = {
+        nodes: nodes,
+        edges: edges,
+      };
+      var layoutMethod = 'directed';
+      var options = {
+        layout: {
+          hierarchical: {
+            sortMethod: layoutMethod,
+            levelSeparation: 200
+          }
         },
-        multiselect: true,
-        navigationButtons: true,
-        selectable: true,
-        selectConnectedEdges: true,
-        tooltipDelay: 300,
-        zoomView: true
-      }
-    };
+        edges: {
+          smooth: true,
+          arrows: {to : true }
 
-    var network = new vis.Network(container, data, options);
+        },
+        interaction:{
+          dragNodes:false,
+          dragView: false,
+          hideEdgesOnDrag: false,
+          hideNodesOnDrag: false,
+          hover: true,
+          hoverConnectedEdges: true,
+          keyboard: {
+            enabled: false,
+            speed: {x: 10, y: 10, zoom: 0.02},
+            bindToWindow: true
+          },
+          multiselect: true,
+          navigationButtons: true,
+          selectable: true,
+          selectConnectedEdges: true,
+          tooltipDelay: 300,
+          zoomView: true
+        }
+      };
 
-    // network.on("select", function (params) {
-    //   node = nodes.get(params.nodes[0])
-    //     callService(value, node.label , node.nodeLabel)
-    //
-    // });
+      var network = new vis.Network(container, data, options);
+
+      // network.on("select", function (params) {
+      //   node = nodes.get(params.nodes[0])
+      //     callService(value, node.label , node.nodeLabel)
+      //
+      // });
 
 
-    $('#query').html(traversal.annotated());
-    $('[data-toggle="tooltip"]').tooltip();
+      $('#query').html(traversal.annotated());
+      $('[data-toggle="tooltip"]').tooltip();
+    }
+    else {
+      var loadingSpinner = '<i> No data found for this query. </i>';
+      $('#query, #the-graph').html(loadingSpinner);
+    }
+
+
     // if (queryContainer.hasClass('hidden')) {
     //   queryContainer.removeClass('hidden');
     // }
@@ -313,6 +318,7 @@ function callService(value, nodeLabel, nodeText){
       var loadingSpinner = '<i> No data found for this query. </i>';
       $('#query, #the-graph').html(loadingSpinner);
     })
+
   );
 
 }
