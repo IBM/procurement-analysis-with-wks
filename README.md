@@ -350,6 +350,7 @@ GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 1. Install [Node.js](https://nodejs.org/en/) runtime or NPM.
 1. Start the app by running `npm install`, followed by `npm start`.
 1. Access the UI by pointing your browser at the host and port values returned by the `npm start` command. For example, `http://localhost:6003`.
+1. From the UI, press the `Sync` button to load the Discovery Data into the JanusGraph DB.
 
 ## 13. Deploy and run the application on IBM Cloud
 
@@ -389,7 +390,13 @@ To view logs, or get overview information about your app, use the IBM Cloud dash
 
 # Sample UI layout
 
+Nodes shown when query "All Suppliers with full Capacity" is selected:
+
 ![](doc/source/images/output-1.png)
+
+Drill-down to a regional site to show status information about potential supply issues:
+
+![](doc/source/images/output-2.png)
 
 # Troubleshooting
 
