@@ -171,6 +171,7 @@ From the **Access & Tools -> Documents** panel, press the **Create Annotation Se
 
 ## 7. Create a Task for Human Annotation
 
+Note: With the latest release of Watson Knowledge Studio, most of the remainig steps below reference menu actions that have been moved. There is a new **Machine Learning Model** menu item that has been added to the left side of the UI panel. It contains actions associated with **Tasks** (now referred to as **Annotation Tasks**), **Performance**, and **Versions**. Please keep this in mind as you navigate the following steps.
 Add a task for human annotation by creating a task and assigning it annotation sets.
 
 From the **Access & Tools -> Documents** panel, select the **Task** tab and press the **Add Task** button.
@@ -313,20 +314,24 @@ Edit the `.env` file with the necessary settings.
 #### `env.sample:`
 
 ```
-# Replace the credentials here with your own.
-# Rename this file to .env before starting the app.
-
-# JanusGraph DB 
-GRAPH_DB_USERNAME=admin
-GRAPH_DB_PASSWORD=<add_janusgraph_password>
-GRAPH_DB_API_URL=<add_janusgraph_api_url>
+# Copy this file to .env and replace the credentials with
+# your own before starting the app.
 
 # Watson Discovery
-DISCOVERY_USERNAME=<add_discovery_username>
-DISCOVERY_PASSWORD=<add_discovery_password>
+DISCOVERY_VERSION_DATE="2018-03-05"
+DISCOVERY_URL=<add_discovery_url>
 DISCOVERY_ENVIRONMENT_ID=<add_discovery_environment_id>
 DISCOVERY_CONFIGURATION_ID=<add_discovery_configuration_id>
 DISCOVERY_COLLECTION_ID=<add_discovery_collection_id>
+## Un-comment and use either username+password or IAM apikey.
+DISCOVERY_IAM_APIKEY=<add_discovery_iam_apikey>
+# DISCOVERY_USERNAME=<add_discovery_username>
+# DISCOVERY_PASSWORD=<add_discovery_password>
+
+# JanusGraph DB
+GRAPH_DB_USERNAME=admin
+GRAPH_DB_PASSWORD=<add_janusgraph_password>
+GRAPH_DB_API_URL=<add_janusgraph_api_url>
 ```
 
 The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
