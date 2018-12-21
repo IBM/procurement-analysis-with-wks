@@ -91,9 +91,9 @@ This image shows the relationships and data flows between the major components o
 ![](doc/source/images/tech-architecture-1.png)
 
 ## Included Components
-* [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
-* [Watson Discovery](https://console.bluemix.net/catalog/services/discovery): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
-* [Compose for JanusGraph](https://console.bluemix.net/catalog/services/compose-for-janusgraph): JanusGraph is a scalable graph database optimized for storing and querying highly-interconnected data modeled as millions or billions of vertices and edges
+* [Watson Knowledge Studio](https://cloud.ibm.com/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
+* [Watson Discovery](https://cloud.ibm.com/catalog/services/discovery): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
+* [Compose for JanusGraph](https://cloud.ibm.com/catalog/services/compose-for-janusgraph): JanusGraph is a scalable graph database optimized for storing and querying highly-interconnected data modeled as millions or billions of vertices and edges
 
 # Steps
 
@@ -121,9 +121,9 @@ git clone https://github.com/IBM/procurement-analysis-with-wks
 
 Create the following services:
 
-* [**Watson Discovery**](https://console.bluemix.net/catalog/services/discovery)
-* [**Watson Knowledge Studio**](https://console.bluemix.net/catalog/services/knowledge-studio)
-* [**Compose for JanusGraph**](https://console.bluemix.net/catalog/services/compose-for-janusgraph)
+* [**Watson Discovery**](https://cloud.ibm.com/catalog/services/discovery)
+* [**Watson Knowledge Studio**](https://cloud.ibm.com/catalog/services/knowledge-studio)
+* [**Compose for JanusGraph**](https://cloud.ibm.com/catalog/services/compose-for-janusgraph)
 
 ## 3. Create a Watson Knowledge Studio workspace
 
@@ -334,7 +334,7 @@ GRAPH_DB_PASSWORD=<add_janusgraph_password>
 GRAPH_DB_API_URL=<add_janusgraph_api_url>
 ```
 
-The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
+The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://cloud.ibm.com/dashboard/apps).
 
 For the JanusGraph entries, navigate to the `Service Credentials` panel for the your JanusGraph service instance. The values can be found in the `gremlin_console_yaml` section of the generated credentials. For example:
 
@@ -359,7 +359,7 @@ GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 
 ## 13. Deploy and run the application on IBM Cloud
 
-To deploy to the IBM Cloud, make sure you have the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
+To deploy to the IBM Cloud, make sure you have the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
 
 ```
 cd procurement-analysis-with-wks
