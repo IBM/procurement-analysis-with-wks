@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)](https://travis-ci.org/IBM/procurement-analysis-with-wks)
+[![Build Status](https://api.travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)](https://travis-ci.org/IBM/procurement-analysis-with-wks)
 
 # Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
 
@@ -91,9 +91,9 @@ This image shows the relationships and data flows between the major components o
 ![](doc/source/images/tech-architecture-1.png)
 
 ## Included Components
-* [Watson Knowledge Studio](https://console.bluemix.net/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
-* [Watson Discovery](https://console.bluemix.net/catalog/services/discovery): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
-* [Compose for JanusGraph](https://console.bluemix.net/catalog/services/compose-for-janusgraph): JanusGraph is a scalable graph database optimized for storing and querying highly-interconnected data modeled as millions or billions of vertices and edges
+* [Watson Knowledge Studio](https://cloud.ibm.com/catalog/services/knowledge-studio): Build custom models to teach Watson the language of your domain.
+* [Watson Discovery](https://cloud.ibm.com/catalog/services/discovery): A cognitive search and content analytics engine for applications to identify patterns, trends, and actionable insights.
+* [Compose for JanusGraph](https://cloud.ibm.com/catalog/services/compose-for-janusgraph): JanusGraph is a scalable graph database optimized for storing and querying highly-interconnected data modeled as millions or billions of vertices and edges
 
 # Steps
 
@@ -121,9 +121,9 @@ git clone https://github.com/IBM/procurement-analysis-with-wks
 
 Create the following services:
 
-* [**Watson Discovery**](https://console.bluemix.net/catalog/services/discovery)
-* [**Watson Knowledge Studio**](https://console.bluemix.net/catalog/services/knowledge-studio)
-* [**Compose for JanusGraph**](https://console.bluemix.net/catalog/services/compose-for-janusgraph)
+* [**Watson Discovery**](https://cloud.ibm.com/catalog/services/discovery)
+* [**Watson Knowledge Studio**](https://cloud.ibm.com/catalog/services/knowledge-studio)
+* [**Compose for JanusGraph**](https://cloud.ibm.com/catalog/services/compose-for-janusgraph)
 
 ## 3. Create a Watson Knowledge Studio workspace
 
@@ -334,7 +334,7 @@ GRAPH_DB_PASSWORD=<add_janusgraph_password>
 GRAPH_DB_API_URL=<add_janusgraph_api_url>
 ```
 
-The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://console.bluemix.net/dashboard/apps).
+The settings can be found by navigating to the specific service instance from within the [IBM Cloud dashboard](https://cloud.ibm.com/dashboard/apps).
 
 For the JanusGraph entries, navigate to the `Service Credentials` panel for the your JanusGraph service instance. The values can be found in the `gremlin_console_yaml` section of the generated credentials. For example:
 
@@ -359,7 +359,7 @@ GRAPH_DB_PASSWORD=MASHDUVREXMCSZLR
 
 ## 13. Deploy and run the application on IBM Cloud
 
-To deploy to the IBM Cloud, make sure you have the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
+To deploy to the IBM Cloud, make sure you have the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/get_started.html#getting-started) tool installed. Then run the following commands to login using your IBM Cloud credentials.
 
 ```
 cd procurement-analysis-with-wks
@@ -415,12 +415,12 @@ Drill-down to a regional site to show status information about potential supply 
 
 # Learn more
 
-* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/code/technologies/artificial-intelligence/).
+* **Artificial Intelligence Code Patterns**: Enjoyed this Code Pattern? Check out our other [AI Code Patterns](https://developer.ibm.com/technologies/artificial-intelligence/).
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **With Watson**: Want to take your Watson app to the next level? Looking to utilize Watson Brand assets? [Join the With Watson program](https://www.ibm.com/watson/with-watson/) to leverage exclusive brand, marketing, and tech resources to amplify and accelerate your Watson embedded commercial solution.
 
 # License
 
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
