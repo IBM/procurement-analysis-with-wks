@@ -1,3 +1,7 @@
+# WARNING: This repository is no longer maintained
+
+> This repository will not be updated. The repository will be kept available in read-only mode.
+
 [![Build Status](https://api.travis-ci.org/IBM/procurement-analysis-with-wks.svg?branch=master)](https://travis-ci.org/IBM/procurement-analysis-with-wks)
 
 # Creating a smarter procurement system with Watson Knowledge Studio and Watson Discovery
